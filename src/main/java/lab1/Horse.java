@@ -1,16 +1,16 @@
 package lab1_package;
 
-public class Fly implements Move {
+public class Horse implements Move{
     @Override
     public void move(Point currentPosition, Point destPoint) {
 
         if (currentPosition.comparePoints(destPoint)){
-            System.out.println("Ok, let's imagine that you're trying to fly up...");
+            System.out.println("The horse trampled on the spot.");
             return;
         }
 
-        if (currentPosition.getDistance(destPoint) > 100){
-            System.out.println("You can't move more than 100 steps using wings!");
+        if (currentPosition.getDistance(destPoint) > 50){
+            System.out.println("You can't move more than 50 steps using your horse!");
             return;
         }
 
@@ -19,7 +19,7 @@ public class Fly implements Move {
 
     @Override
     public String getName() {
-        return "Fly";
+        return "Horse";
     }
 
 }

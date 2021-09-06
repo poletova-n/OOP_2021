@@ -1,5 +1,6 @@
-package lab1;
+package lab1_package;
 
 public interface Move {
-    void move(Point a, Point b);
+    void move(Point currentPosition, Point destPoint);
+    String  getName();
 }

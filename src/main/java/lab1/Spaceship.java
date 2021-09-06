@@ -1,16 +1,11 @@
 package lab1_package;
 
-public class Fly implements Move {
+public class Spaceship implements Move{
     @Override
     public void move(Point currentPosition, Point destPoint) {
 
         if (currentPosition.comparePoints(destPoint)){
-            System.out.println("Ok, let's imagine that you're trying to fly up...");
-            return;
-        }
-
-        if (currentPosition.getDistance(destPoint) > 100){
-            System.out.println("You can't move more than 100 steps using wings!");
+            System.out.println("So, I said that you have no limits to move, but you decided to move at the place where you already are.");
             return;
         }
 
@@ -19,7 +14,7 @@ public class Fly implements Move {
 
     @Override
     public String getName() {
-        return "Fly";
+        return "Spaceship";
     }
 
 }
