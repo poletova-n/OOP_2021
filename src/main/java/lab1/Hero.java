@@ -39,12 +39,9 @@ public class Hero {
 
     public String toString(){
 
-        StringBuilder sb = new StringBuilder();
+        return  "Hero's moving method: " + moveMethod.getName() + "\n" +
+                "Hero's position: (" + position.getX() + ';' + position.getY() + ")\n";
 
-        sb.append("Hero's moving method: ").append(moveMethod.getName()).append("\n");
-        sb.append("Hero's position: (").append(position.getX()).append(';').append(position.getY()).append(")\n");
-
-        return sb.toString();
     }
 
 }
