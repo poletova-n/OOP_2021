@@ -1,4 +1,4 @@
-package lab1_package;
+package lab1;
 
 public interface Move {
     void move(Point currentPosition, Point destPoint);

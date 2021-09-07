@@ -1,4 +1,4 @@
-package lab1_package;
+package lab1;
 
 public class Main {
     public static void main(String[] args) {
@@ -89,7 +89,14 @@ public class Main {
         System.out.println("Trying to make hero swim:\n//theGreatHero.changeMoveMethod(\"Swim\");");
         theGreatHero.changeMoveMethod("Swim");
 
+//Testing wrong method's change
 
+        System.out.println("Trying to change Spaceship for Spaceship:");
+        theGreatHero.changeMoveMethod("Spaceship");
+
+        System.out.println("\nTrying to change Horse for Horse:");
+        theGreatHero.changeMoveMethod("Horse");
+        theGreatHero.changeMoveMethod("Horse");
 
     }
 }
