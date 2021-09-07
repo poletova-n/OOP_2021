@@ -1,5 +1,6 @@
-package lab1.smirnov.evgeny;
+package lab1;
 
+import lab1.movement.*;
 import lab1.smirnov.evgeny.movement.*;
 
 public class Hero {

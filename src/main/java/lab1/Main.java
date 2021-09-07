@@ -1,4 +1,4 @@
-package lab1.smirnov.evgeny;
+package lab1;
 
 public class Main {
 

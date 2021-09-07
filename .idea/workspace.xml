@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef40948f-a777-41f0-83ff-b64f402200fc" name="Changes" comment="created first lab" />
+    <list default="true" id="ef40948f-a777-41f0-83ff-b64f402200fc" name="Changes" comment="created first lab">
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab1/Fly.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab1/Hero.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab1/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab1/Move.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab1/Point.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +20,18 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -63,6 +81,7 @@
       <option name="presentableId" value="Default" />
       <updated>1630956712452</updated>
       <workItem from="1630956714719" duration="1586000" />
+      <workItem from="1630958975374" duration="367000" />
     </task>
     <task id="LOCAL-00001" summary="created first lab">
       <created>1630956843239</created>
@@ -94,6 +113,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="created first lab" />

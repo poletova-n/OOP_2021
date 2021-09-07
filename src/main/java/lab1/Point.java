@@ -1,4 +1,4 @@
-package lab1.smirnov.evgeny;
+package lab1;
 
 import lombok.Getter;
 import lombok.Setter;

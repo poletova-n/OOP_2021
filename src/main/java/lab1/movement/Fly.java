@@ -1,6 +1,6 @@
-package lab1.smirnov.evgeny.movement;
+package lab1.movement;
 
-import lab1.smirnov.evgeny.Point;
+import lab1.Point;
 
 public class Fly implements Movement {
 
