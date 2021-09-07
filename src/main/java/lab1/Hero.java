@@ -4,9 +4,14 @@ public class Hero {
     Move action;
     Point currentPos;
 
-    Hero() 
+    public Hero() 
     {
         currentPos = new Point(0, 0);
+    }
+    
+	public Hero(int xStart, int yStart) 
+    {
+        currentPos = new Point(xStart, yStart);
     }
     
     public void setTypeOfActivity(Move type)
@@ -16,6 +21,7 @@ public class Hero {
     
     public void moveOut(Point dest)
     {
+    	action.move(dest);
     	currentPos = dest;
     }
 }
