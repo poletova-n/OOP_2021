@@ -1,23 +1,22 @@
 package lab1;
 
-import java.sql.SQLOutput;
-
-public class Fly implements Move {
-
+public class Teleport implements Move
+{
     @Override
     public void move(Point currentPosition, Point destPoint)
     {
         if(currentPosition.isPointsEquel(destPoint))
         {
-            System.out.println("You can't fly on the same spot");
+            System.out.println("Wow! That's thing doesn't work");
             return;
         }
 
         currentPosition.setPoint(destPoint.getX(), destPoint.getY());
     }
+
     @Override
     public String getName()
     {
-        return "Fly";
+        return "Teleport";
     }
 }
