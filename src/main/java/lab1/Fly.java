@@ -1,6 +1,6 @@
 package lab1;
 
-public class Fly implements Move {
+public class Fly implements MovingMethod {
     @Override
     public void move(Point currentPosition, Point destPoint) {
 

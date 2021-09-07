@@ -1,6 +1,6 @@
 package lab1;
 
-public class Horse implements Move{
+public class Horse implements MovingMethod {
     @Override
     public void move(Point currentPosition, Point destPoint) {
 

@@ -2,6 +2,9 @@ package lab1;
 
 public class Point {
 
+    private int x;
+    private int y;
+
     public Point(){}
 
     public Point(int x , int y){
@@ -9,12 +12,9 @@ public class Point {
         this.y = y;
     }
 
-    public Point setPoint(int x, int y){
-
+    public void setPoint(int x, int y){
         this.x = x;
         this.y = y;
-
-        return this;
     }
 
     public int getX(){
@@ -32,8 +32,5 @@ public class Point {
     public int getDistance(Point other){
         return (int) Math.sqrt(Math.pow(other.x - this.x, 2) + (Math.pow(other.y - this.y, 2)));
     }
-
-    private int x;
-    private int y;
 
 }

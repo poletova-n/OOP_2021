@@ -2,6 +2,9 @@ package lab1;
 
 public class Hero {
 
+    private final Point position;
+    private MovingMethod moveMethod;
+
     public Hero(){
 
         position = new Point();
@@ -16,9 +19,9 @@ public class Hero {
 
     }
 
-    public void changeMoveMethod(String methodName){
+    public void changeMovingMethod(String methodName){
 
-        if (methodName == moveMethod.getName()){
+        if (methodName.equals(moveMethod.getName())){
 
             System.out.println("Why are you trying to replace " + moveMethod.getName() + " by " + moveMethod.getName() + "?");
 
@@ -38,12 +41,10 @@ public class Hero {
 
         StringBuilder sb = new StringBuilder();
 
-        sb.append("Hero's moving method: " + moveMethod.getName() + "\n");
-        sb.append("Hero's position: (" + position.getX() + ';' + position.getY() + ")\n");
+        sb.append("Hero's moving method: ").append(moveMethod.getName()).append("\n");
+        sb.append("Hero's position: (").append(position.getX()).append(';').append(position.getY()).append(")\n");
 
         return sb.toString();
     }
 
-    private Point position;
-    private Move moveMethod;
 }

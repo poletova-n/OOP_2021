@@ -1,6 +1,6 @@
 package lab1;
 
-public class Spaceship implements Move{
+public class Spaceship implements MovingMethod {
     @Override
     public void move(Point currentPosition, Point destPoint) {
 

@@ -1,6 +1,6 @@
 package lab1;
 
-public class Walk implements Move{
+public class Walk implements MovingMethod {
     @Override
     public void move(Point currentPosition, Point destPoint) {
 
