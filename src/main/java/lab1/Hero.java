@@ -1,13 +1,26 @@
 package lab1;
 
+import lab1.movement.*;
+import lab1.smirnov.evgeny.movement.*;
+
 public class Hero {
-    Move m;
+    private Movement movement;
+    private Point currentPoint = new Point(0d,0d);
 
-    Hero() {
-        m = new Fly();
+    public Hero(String moving) {
+        setMovement(moving);
     }
-
-    Hero(Move move) {
-        m = move;
+    public void setMovement(String moving) {
+        switch (moving.toLowerCase()) {
+            case "fly" -> movement = new Fly();
+            case "walk" -> movement = new Walk();
+            case "swim" -> movement = new Swim();
+            case "ride" -> movement = new Ride();
+            case "cycle" -> movement = new Cycle();
+            default -> movement = new Walk();
+        }
+    }
+    public void startMoving(Point newPoint) {
+        movement.move(currentPoint, newPoint);
     }
 }
