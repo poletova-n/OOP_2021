@@ -10,4 +10,8 @@ public class Hero {
     Hero(Move move) {
         m = move;
     }
+
+    public void changeModeOfTransportation(Move move) {
+        m = move;
+    }
 }
