@@ -67,16 +67,14 @@ public class Matrix {
                 }
 
                 try {
-
                     if (neighboursSum == 0){
                         throw new DividedByZero("Dividing by zero happened!");
                     }
-
-                    matrix[i][j] =Math.round((matrix[i][j] / neighboursSum) * 100.0) / 100.0;
-
                 }catch (DividedByZero exception){
                     exception.printStackTrace();
                 }
+
+                matrix[i][j] = Math.round((matrix[i][j] / neighboursSum) * 100.0) / 100.0;
 
                 neighboursSum = 0;
 
