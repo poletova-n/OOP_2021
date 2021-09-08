@@ -5,10 +5,3 @@ public class DivideZero extends Exception {
         super(message);
     }
 }
-
-
- //      private int number;
-//
-//     public int getNumber() {
-//         return number;
-//     }
