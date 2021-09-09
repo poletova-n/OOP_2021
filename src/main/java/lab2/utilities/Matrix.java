@@ -72,12 +72,11 @@ public class Matrix {
                         throw new DividedByZero("Division by 0 occurred!");
                     }
 
-                matrix[i][j] = Math.round((matrix[i][j] / neighboursSum) * 100.0) / 100.0;
+                    matrix[i][j] = Math.round((matrix[i][j] / neighboursSum) * 100.0) / 100.0;
 
                 }catch (DividedByZero exception){
                     exception.printStackTrace();
                 }
-
 
                 neighboursSum = 0;
 
@@ -87,12 +86,9 @@ public class Matrix {
 
     public void printMatrixToFile(String filePath){
 
-        FileOutputStream fos = null;
         int matrixDegrees = 90;
 
-        try {
-
-            fos = new FileOutputStream(filePath);
+        try (FileOutputStream fos = new FileOutputStream(filePath)){
 
             StringBuilder stringBuilder = new StringBuilder();
 

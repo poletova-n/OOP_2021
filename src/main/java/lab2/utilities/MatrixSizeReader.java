@@ -1,6 +1,7 @@
 package lab2.utilities;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import lab2.exceptions.*;
 
@@ -13,14 +14,10 @@ public class MatrixSizeReader {
     }
 
     public int readSize(){
-
-        FileInputStream fis = null;
         int a = 0;
         int tempSize = 0;
 
-        try{
-
-            fis = new FileInputStream(path);
+        try(FileInputStream fis = new FileInputStream(path)){
 
             StringBuilder stringBuilder = new StringBuilder();
 
@@ -28,7 +25,6 @@ public class MatrixSizeReader {
                 stringBuilder.append((char) a);
             }
 
-            fis.close();
 
             if (stringBuilder.isEmpty()){
                 throw new EmptyFile("File is empty!");
