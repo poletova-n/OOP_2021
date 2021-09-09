@@ -1,8 +1,7 @@
 package lab2.utilities;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
+
 import lab2.exceptions.*;
 
 public class MatrixSizeReader {
@@ -14,25 +13,36 @@ public class MatrixSizeReader {
     }
 
     public int readSize(){
-        int a = 0;
-        int tempSize = 0;
+        int a;
+        int size;
 
-        try(FileInputStream fis = new FileInputStream(path)){
+        try {
+
+            File inputFile = new File(path);
+
+            if (!inputFile.exists()){
+                throw new FileNotFound("Input file not found!");
+            }
+
+        }catch (FileNotFound exception){
+            exception.printStackTrace();
+        }
+
+        try(FileReader fileReader = new FileReader(path)){
 
             StringBuilder stringBuilder = new StringBuilder();
 
-            while ((a = fis.read()) != -1){
+            while ((a = fileReader.read()) != -1){
                 stringBuilder.append((char) a);
             }
-
 
             if (stringBuilder.isEmpty()){
                 throw new EmptyFile("File is empty!");
             }
 
-            tempSize = Integer.parseInt(stringBuilder.toString());
+            size = Integer.parseInt(stringBuilder.toString());
 
-           if(tempSize > 1000000 | tempSize <= 0){
+           if(size > 1000000 | size <= 0){
                throw new InadmissibleMatrixSize("Inadmissible matrix size!");
            }
 
@@ -41,7 +51,7 @@ public class MatrixSizeReader {
             return 0;
         }
 
-        return tempSize;
+        return size;
 
     }
 

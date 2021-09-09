@@ -1,9 +1,11 @@
 package lab2.utilities;
 
 import lab2.exceptions.DividedByZero;
-import java.io.FileOutputStream;
+import lab2.exceptions.FileNotFound;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
+
 
 public class Matrix {
 
@@ -69,12 +71,13 @@ public class Matrix {
                 try {
 
                     if (neighboursSum == 0){
-                        throw new DividedByZero("Division by 0 occurred!");
+                        throw new DividedByZero("Division by 0 in element [" + i + "][" + j + "] occurred!");
                     }
 
                     matrix[i][j] = Math.round((matrix[i][j] / neighboursSum) * 100.0) / 100.0;
 
                 }catch (DividedByZero exception){
+                    matrix[i][j] = Double.POSITIVE_INFINITY;
                     exception.printStackTrace();
                 }
 
@@ -88,17 +91,28 @@ public class Matrix {
 
         int matrixDegrees = 90;
 
-        try (FileOutputStream fos = new FileOutputStream(filePath)){
+        try {
+            File outputFile = new File(filePath);
+
+            if (!outputFile.exists()){
+                throw new FileNotFound("Output file not found!");
+            }
+
+        }catch (FileNotFound exception){
+            exception.printStackTrace();
+        }
+
+        try (FileWriter writer = new FileWriter(filePath)){
 
             StringBuilder stringBuilder = new StringBuilder();
 
             for (int k = 0; k < 3; k++) {
 
-                stringBuilder.append("Matrix " + matrixDegrees + " degrees:\n\n");
+                stringBuilder.append("Matrix ").append(matrixDegrees).append(" degrees:\n\n");
 
                 for (int i = 0; i < matrix.length; i++) {
                     for (int j = 0; j < matrix.length; j++) {
-                        stringBuilder.append(matrix[i][j] + "\t\t");
+                        stringBuilder.append(matrix[i][j]).append("\t\t");
                     }
                     stringBuilder.append("\n\n\n");
                 }
@@ -111,7 +125,7 @@ public class Matrix {
 
             }
 
-            fos.write(stringBuilder.toString().getBytes(StandardCharsets.UTF_8));
+            writer.write(stringBuilder.toString());
 
         } catch (IOException exception) {
             exception.printStackTrace();
@@ -125,7 +139,7 @@ public class Matrix {
 
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix.length; j++) {
-                stringBuilder.append(matrix[i][j] + "\t\t");
+                stringBuilder.append(matrix[i][j]).append("\t\t");
             }
             stringBuilder.append("\n\n\n");
         }
