@@ -1,13 +1,27 @@
 package lab1;
 
 public class Hero {
-    Move m;
 
-    Hero() {
-        m = new Fly();
+    private Move activity;
+    private Point currentPoint = new Point(0, 0);
+
+    public Hero(String moving) {
+        setActivity(moving);
     }
 
-    Hero(Move move) {
-        m = move;
+    public void setActivity(String moving) {
+        switch (moving.toLowerCase()) {
+            case "walk" -> activity = new Walk();
+            case "ride" -> activity = new Horse();
+            case "swim" -> activity = new Swim();
+            case "fly" -> activity = new Fly();
+            case "teleport" -> activity = new Teleport();
+            default -> activity = new Walk();
+        }
+    }
+
+    public void startMovement(Point nextPoint) {
+
+        activity.move(currentPoint, nextPoint);
     }
 }

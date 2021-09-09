@@ -1,12 +1,13 @@
 package lab1;
 
-public class Fly implements Move {
+public class Walk implements Move {
 
     @Override
     public void move(Point currentPoint, Point nextPoint) {
 
-        System.out.println("WOW! I am flying to " + currentPoint.toString());
+        System.out.println("It's time to take a walk, let's go to " + currentPoint.toString());
         System.out.println("\n");
         currentPoint.copyPoint(nextPoint);
+
     }
 }
