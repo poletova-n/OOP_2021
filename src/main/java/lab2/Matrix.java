@@ -8,19 +8,14 @@ import java.nio.charset.StandardCharsets;
 
 public class Matrix {
 
-    private double [][] matrix;
-    private String path;
+    private final double [][]  matrix;
 
     public Matrix(String pathToFile)
     {
-
-        FileInputStream fileInputStream = null;
-
-        int x = 0;
+        int x;
         int tempSize = 0;
 
-        try{
-            fileInputStream = new FileInputStream(pathToFile);
+        try(FileInputStream fileInputStream = new FileInputStream( pathToFile)){
 
             StringBuilder sb = new StringBuilder();
 
@@ -44,7 +39,7 @@ public class Matrix {
         matrix = new double[tempSize][tempSize];
         for (int i = 0; i < tempSize; i++) {
             for (int j = 0; j < tempSize; j++) {
-                matrix[i][j] = (double) Math.floor(Math.random() * (2 * tempSize + 1) - tempSize);
+                matrix[i][j] = Math.floor(Math.random() * (2 * tempSize + 1) - tempSize);
             }
         }
     }
@@ -109,19 +104,17 @@ public class Matrix {
 
     public void printMatrixToFile(String pathToFile){
 
-        FileOutputStream fileOutputStream = null;
         int degreeOfRotation = 90;
 
-        try{
+        try(FileOutputStream fileOutputStream = new FileOutputStream(pathToFile)){
 
-            fileOutputStream = new FileOutputStream (pathToFile);
             StringBuilder sb = new StringBuilder();
 
             for (int i = 0; i < 3; i++) {
-                sb.append("Matrix " + degreeOfRotation + " degrees:\n\n");
-                for (int j = 0; j < matrix.length; j++) {
+                sb.append("Matrix ").append(degreeOfRotation).append(" degrees:\n\n");
+                for (double[] doubles : matrix) {
                     for (int k = 0; k < matrix.length; k++) {
-                        sb.append(matrix[j][k] + "\t\t");
+                        sb.append(doubles[k]).append("\t\t");
                     }
                     sb.append("\n\n\n");
                 }
@@ -133,7 +126,6 @@ public class Matrix {
             }
 
             fileOutputStream.write(sb.toString().getBytes(StandardCharsets.UTF_8));
-            fileOutputStream.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -143,9 +135,9 @@ public class Matrix {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < matrix.length; i++) {
+        for (double[] doubles : matrix) {
             for (int j = 0; j < matrix.length; j++) {
-                sb.append(matrix[i][j] + "\t\t\t");
+                sb.append(doubles[j]).append("\t\t\t");
             }
             sb.append("\n\n");
         }
