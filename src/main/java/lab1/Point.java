@@ -1,13 +1,24 @@
 package lab1;
 
-import lombok.Getter;
-import lombok.Setter;
-
 public class Point {
-    @Getter
-    @Setter
-    private int x;
-    @Getter
-    @Setter
-    private int y;
+    private static int x = 0;
+    private static int y = 0;
+
+    public Point(){
+    }
+
+    public Point(int x, int y){
+        this.x += x;
+        this.y += y;
+    }
+
+    public Point getcheckpoint(){
+        return new Point();
+    }
+
+    public void get(){
+        System.out.print(this.x + " ");
+        System.out.println(this.y);
+    }
+
 }
