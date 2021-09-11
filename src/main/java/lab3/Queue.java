@@ -6,9 +6,9 @@ import lab3.exceptions.OutOfCapacity;
 
 public class Queue<T extends Chorda> {
 
-    private Integer maxSize;
-    private Integer capacity;
-    private T[] elements;
+    private Integer   maxSize;
+    private Integer   capacity;
+    private final T[] elements;
 
     private Integer pointerR;
     private Integer pointerL;
@@ -22,7 +22,6 @@ public class Queue<T extends Chorda> {
 
     public Queue() {
         elements = (T[]) new Chorda[maxSize];
-        // elements = (T[]) Array.newInstance(cls,maxSize);
     }
 
     public Queue(int size) {
