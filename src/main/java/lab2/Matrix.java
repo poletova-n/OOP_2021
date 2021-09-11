@@ -92,7 +92,8 @@ public class Matrix {
 
                     matrix[i][j] = Math.round((matrix[i][j] / sumOfNeighbours) * 100.0) / 100.0;
                 }catch (DividedByZero exception){
-//                    exception.printStackTrace();
+                    matrix[i][j] = Double.POSITIVE_INFINITY;
+                    exception.printStackTrace();
                 }
 
                 sumOfNeighbours = 0;
@@ -126,7 +127,7 @@ public class Matrix {
             }
 
             fileOutputStream.write(sb.toString().getBytes(StandardCharsets.UTF_8));
-        } catch (IOException e) {
+        }catch (IOException e) {
             e.printStackTrace();
         }
 
