@@ -11,12 +11,11 @@ public class Point {
         this.y = y_point;
     }
 
-    public Point setPoint(int x_point, int y_point)
+    public void setPoint(int x_point, int y_point)
     {
         this.x = x_point;
         this.y = y_point;
 
-        return this;
     }
 
     public int getX(){

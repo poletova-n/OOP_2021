@@ -18,7 +18,7 @@ public class Hero {
 
     public void switchMoveMethod(String methodName){
 
-        if (methodName == moveMethod.getName()){
+        if (methodName.equalsIgnoreCase(moveMethod.getName())){
 
             System.out.println("Why are you trying to replace " + moveMethod.getName() + " by " + moveMethod.getName() + "?");
 
@@ -27,7 +27,7 @@ public class Hero {
         switch (methodName) {
             case "Run"      -> moveMethod = new Run();
             case "Ship"     -> moveMethod = new Ship();
-            case "Fly"       -> moveMethod = new Fly();
+            case "Fly"      -> moveMethod = new Fly();
             case "Teleport" -> moveMethod = new Teleport();
             default -> System.out.println("Unknown moving method!\n");
         }
@@ -38,12 +38,12 @@ public class Hero {
 
         StringBuilder sb = new StringBuilder();
 
-        sb.append("Hero's moving method: " + moveMethod.getName() + "\n");
-        sb.append("Hero's position: (" + position.getX() + ';' + position.getY() + ")\n");
+        sb.append("Hero's moving method: ").append(moveMethod.getName()).append("\n");
+        sb.append("Hero's position: (").append(position.getX()).append(';').append(position.getY()).append(")\n");
 
         return sb.toString();
     }
 
-    private Point position;
+    private final Point position;
     private Move moveMethod;
 }

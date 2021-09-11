@@ -1,7 +1,5 @@
 package lab1;
 
-import java.sql.SQLOutput;
-
 public class Fly implements Move {
 
     @Override

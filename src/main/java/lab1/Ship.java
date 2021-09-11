@@ -6,7 +6,7 @@ public class Ship implements Move{
     {
         if(currentPosition.isPointsEquel(destPoint))
         {
-            System.out.println("I think your shiз is sinking");
+            System.out.println("I think your ship is sinking");
             return;
         }
 
@@ -16,7 +16,7 @@ public class Ship implements Move{
     @Override
     public String getName()
     {
-        return "Teleport";
+        return "ship";
     }
 
 }
