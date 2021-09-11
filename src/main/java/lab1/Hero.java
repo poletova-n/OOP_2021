@@ -21,7 +21,7 @@ public class Hero {
 
     public void changeMovingMethod(String methodName){
 
-        if (methodName.equals(moveMethod.getName())){
+        if (methodName.equalsIgnoreCase(moveMethod.getName())){
 
             System.out.println("Why are you trying to replace " + moveMethod.getName() + " by " + moveMethod.getName() + "?");
 
