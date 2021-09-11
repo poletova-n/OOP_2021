@@ -1,6 +1,7 @@
 package lab1;
 
 public class Point {
+
     private static int x = 0;
     private static int y = 0;
 
