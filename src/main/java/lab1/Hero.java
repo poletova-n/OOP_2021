@@ -1,13 +1,14 @@
-package lab1;
+package com.example.lab1;
 
 public class Hero {
-    Move m;
+    Activity activity;
 
-    Hero() {
-        m = new Fly();
+    public void setActivity(Activity activity)
+    {
+        this.activity=activity;
     }
-
-    Hero(Move move) {
-        m = move;
+    public void executeActivity(Plase plase,Plase plase2)
+    {
+        activity.move(plase, plase2) ;
     }
 }

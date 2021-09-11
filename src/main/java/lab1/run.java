@@ -1,12 +1,15 @@
 package com.example.lab1;
 
-public class fly implements Activity
-{
+public class run implements Activity {
     public void move(Plase now,Plase future)
     {
-        if (now.comparePlase(future))
+        if (now.comparePlase(future) )
         {
             System.out.println("You're already here!");
+        }
+        else if (now.getZ() != future.getZ())
+        {
+            System.out.println("You have to jump or fly");
         }
         else
         {
