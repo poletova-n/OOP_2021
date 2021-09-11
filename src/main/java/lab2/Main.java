@@ -9,15 +9,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        try {
+        MatrixSizeReader sizeReader = new MatrixSizeReader(INPUT_FILE);
+        Matrix mtx = new Matrix(sizeReader.readSize());
+        mtx.printMatrixToFile(OUTPUT_FILE);
 
-            MatrixSizeReader sizeReader = new MatrixSizeReader(INPUT_FILE);
-            Matrix mtx = new Matrix(sizeReader.readSize());
-            mtx.printMatrixToFile(OUTPUT_FILE);
-
-        }catch (OutOfMemoryError error){
-            error.printStackTrace();
-        }
 
     }
 }
