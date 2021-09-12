@@ -1,13 +1,25 @@
 package lab1;
 
-import lombok.Getter;
-import lombok.Setter;
 
 public class Point {
-    @Getter
-    @Setter
-    private int x;
-    @Getter
-    @Setter
-    private int y;
+
+    private int a;
+    private int b;
+
+    public Point(int a, int b){
+        this.a = a;
+        this.b = b;
+    }
+
+    public void copyPoint(Point newPoint) {
+        if (newPoint != null){
+            this.a = newPoint.a;
+            this.b = newPoint.b;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "position (" + a + "; " + b + ")";
+    }
 }
