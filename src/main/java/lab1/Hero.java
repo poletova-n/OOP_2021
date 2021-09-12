@@ -1,13 +1,13 @@
-package lab1;
+package Lab1;
 
 public class Hero {
-    Move m;
+    MoveStrategy moveStrategy;
 
-    Hero() {
-        m = new Fly();
+    public void setMoveStrategy(MoveStrategy moveStrategy) {
+        this.moveStrategy = moveStrategy;
     }
 
-    Hero(Move move) {
-        m = move;
+    public void move(Point a, Point b) {
+        moveStrategy.move(a, b);
     }
 }

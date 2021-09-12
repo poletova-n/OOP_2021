@@ -1,9 +1,9 @@
-package lab1;
+package Lab1;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hi");
         Hero hero1 = new Hero();
-        hero1.m.move(new Point(), new Point());
+        hero1.setMoveStrategy(new Fly());
+        hero1.move(new Point(1, 2), new Point(3, 4));
     }
 }
