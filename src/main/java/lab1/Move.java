@@ -1,5 +1,9 @@
 package lab1;
 
 public interface Move {
-    void move(Point a, Point b);
+    boolean move(Point a, Point b);
+
+    void message();
+
+    boolean errorMessage(int errorCode);
 }
