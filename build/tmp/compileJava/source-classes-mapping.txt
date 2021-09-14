@@ -1,28 +1,83 @@
-lab1/Fly.java
- lab1.Fly
 lab5/Main.java
  lab5.Main
+lab3/animals/classification/Chorda.java
+ lab3.animals.classification.Chorda
+lab3/animals/classification/Tailless.java
+ lab3.animals.classification.Tailless
+lab3/exceptions/OutOfCapacity.java
+ lab3.exceptions.OutOfCapacity
+lab1/movement/Walk.java
+ lab1.movement.Walk
+lab3/animals/classification/RedBelliedToad.java
+ lab3.animals.classification.RedBelliedToad
+lab3/animals/classification/Mammals.java
+ lab3.animals.classification.Mammals
+lab7/Main.java
+ lab7.Main
+lab1/movement/Cycle.java
+ lab1.movement.Cycle
+lab3/Main.java
+ lab3.Main
+lab3/animals/classification/TreeFrog.java
+ lab3.animals.classification.TreeFrog
+lab1/Hero.java
+ lab1.Hero
+lab1/movement/Ride.java
+ lab1.movement.Ride
+lab3/animals/classification/BlueTreeFrog.java
+ lab3.animals.classification.BlueTreeFrog
+lab3/animals/classification/Bombinatoridae.java
+ lab3.animals.classification.Bombinatoridae
+lab3/animals/classification/ColoringTreeFrog.java
+ lab3.animals.classification.ColoringTreeFrog
+lab3/animals/classification/ForestCat.java
+ lab3.animals.classification.ForestCat
+lab1/Point.java
+ lab1.Point
+lab3/animals/classification/Dartfrog.java
+ lab3.animals.classification.Dartfrog
+lab1/movement/Fly.java
+ lab1.movement.Fly
+lab3/Queue.java
+ lab3.Queue
+lab3/animals/classification/FarEasternToad.java
+ lab3.animals.classification.FarEasternToad
+lab1/movement/Swim.java
+ lab1.movement.Swim
 lab4/Main.java
  lab4.Main
 lab6/Main.java
  lab6.Main
 lab2/exceptions/EmptyFile.java
  lab2.exceptions.EmptyFile
-lab7/Main.java
- lab7.Main
-lab3/Main.java
- lab3.Main
+lab3/animals/classification/Amphibian.java
+ lab3.animals.classification.Amphibian
+lab3/animals/classification/Toad.java
+ lab3.animals.classification.Toad
+lab3/Functions.java
+ lab3.Functions
 lab2/Main.java
  lab2.Main
-lab1/Move.java
- lab1.Move
-lab1/Hero.java
- lab1.Hero
+lab4/Employee.java
+ lab4.Employee
+ lab4.HowMuchHowMany
 lab1/Main.java
  lab1.Main
+lab1/movement/Movement.java
+ lab1.movement.Movement
 lab2/exceptions/IllegalValue.java
  lab2.exceptions.IllegalValue
+lab3/animals/classification/Feline.java
+ lab3.animals.classification.Feline
+lab3/animals/classification/Cat.java
+ lab3.animals.classification.Cat
+lab3/animals/classification/DomesticCat.java
+ lab3.animals.classification.DomesticCat
+lab2/exceptions/FileIsNotExist.java
+ lab2.exceptions.FileIsNotExist
+lab3/exceptions/NotEnoughCapacity.java
+ lab3.exceptions.NotEnoughCapacity
 lab2/exceptions/DivideZero.java
  lab2.exceptions.DivideZero
-lab1/Point.java
- lab1.Point
+lab3/animals/classification/Predatory.java
+ lab3.animals.classification.Predatory
