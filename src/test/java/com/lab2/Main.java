@@ -104,5 +104,20 @@ public class Main {
         Assertions.assertArrayEquals(matrix[2], rotatedMatrix[2]);
     }
 
+    @Test
+    @DisplayName("Check predictable results")
+    public void DivideZeroTest() {
+
+        Throwable throwable = catchThrowable(()->{
+            mergeNeighbors(new double[][]{
+                    {1d,0d,3d},
+                    {0d,5d,6d},
+                    {7d,8d,9d}
+            });
+        });
+        assertThat(throwable).isInstanceOf(DivideZero.class);
+        assertThat(throwable.getMessage()).isNotBlank();
+    }
+
 }
 
