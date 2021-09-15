@@ -190,9 +190,21 @@ public class Main {
     @DisplayName("Function getMapWhereFirstLatterIsKey - CORRECT TEST")
     public void getMapWhereFirstLatterIsKeyCorrect() {
         List<String> stringList = new ArrayList<>();
-        stringList.add("");
-        Map<Character, List<String>> karta = getMapWhereFirstLatterIsKey(stringList);
-
+        stringList.add("Hello");
+        stringList.add("hello");
+        stringList.add("Ice Cream");
+        stringList.add("high");
+        stringList.add("Ice");
+        stringList.add("sky");
+        stringList.add("hi");
+        stringList.add("set");
+        stringList.add("room");
+        stringList.add("red");
+        stringList.add("low");
+        stringList.add("ice");
+        stringList.add("high");
+        Assertions.assertEquals(getMapWhereFirstLatterIsKey(stringList).toString(),
+                "{r=[room, red], s=[sky, set], h=[hello, high, hi], H=[Hello], i=[ice], I=[Ice Cream, Ice], l=[low]}");
     }
 
     @Test
@@ -200,13 +212,10 @@ public class Main {
     public void getMapWhereFirstLatterIsKeyIncorrect() {
         List<String> stringList1 = new ArrayList<>();
         List<String> stringList2 = null;
+        List<String> stringList3 = new ArrayList<>();stringList3.add("");
+
         Assertions.assertNull(getMapWhereFirstLatterIsKey(stringList1));
         Assertions.assertNull(getMapWhereFirstLatterIsKey(stringList2));
-
-        List<String> stringList3 = new ArrayList<>();
-        stringList3.add("");
-        Map<Character, List<String>> karta = getMapWhereFirstLatterIsKey(stringList3);
-        System.out.println(karta);
+        Assertions.assertNull(getMapWhereFirstLatterIsKey(stringList3));
     }
-
 }
