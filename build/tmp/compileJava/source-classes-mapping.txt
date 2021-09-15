@@ -44,6 +44,8 @@ lab3/animals/classification/FarEasternToad.java
  lab3.animals.classification.FarEasternToad
 lab1/movement/Swim.java
  lab1.movement.Swim
+lab5/Instruments.java
+ lab5.Instruments
 lab4/Main.java
  lab4.Main
 lab6/Main.java

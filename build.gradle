@@ -11,11 +11,15 @@ repositories {
 
 dependencies {
 
+    implementation 'junit:junit:4.13.1'
     compileOnly 'org.projectlombok:lombok:1.18.20'
     annotationProcessor 'org.projectlombok:lombok:1.18.20'
 
     testCompileOnly 'org.projectlombok:lombok:1.18.20'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.20'
+    implementation 'org.junit.jupiter:junit-jupiter:5.7.2'
+
+    testCompile("org.assertj:assertj-core:3.11.1")
 }
 
 test {

@@ -20,7 +20,7 @@ public class Main {
         try {
             int N = 0;
             double[][] matrix = null;
-            N = readFromFile();
+            N = readFromFile(INPUT_FILE_NAME);
             matrix = initMatrixRandom(N);
             matrix = mergeNeighbors(matrix);
             writeToFile(matrix);
@@ -91,15 +91,15 @@ public class Main {
         return result;
     }
 
-    public static int readFromFile() throws EmptyFile, IllegalValue, FileIsNotExist {
-        File file = new File(INPUT_FILE_NAME);
+    public static int readFromFile(String FileName) throws EmptyFile, IllegalValue, FileIsNotExist {
+        File file = new File(FileName);
         if (!file.exists())
             throw new FileIsNotExist("Input file not found!");
 
-        try (FileInputStream reader = new FileInputStream(INPUT_FILE_NAME)) {
+        try (FileInputStream reader = new FileInputStream(FileName)) {
             int N = -1;
             if (reader.available() == 0)
-                throw new EmptyFile("File: " + INPUT_FILE_NAME + " is empty!");
+                throw new EmptyFile("File: " + FileName + " is empty!");
 
             byte[] buffer = new byte[reader.available()];
             reader.read(buffer, 0, reader.available());
