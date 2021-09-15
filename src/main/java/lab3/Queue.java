@@ -4,6 +4,8 @@ import lab3.animals.classification.Chorda;
 import lab3.exceptions.QueueOverFlow;
 import lab3.exceptions.QueueUnderFlow;
 
+import java.util.Objects;
+
 public class Queue<T extends Chorda> {
 
     private Integer   maxSize;
@@ -72,14 +74,36 @@ public class Queue<T extends Chorda> {
     private String preWrite(T[] elements){
         StringBuilder sb = new StringBuilder();
         sb.append("[");
-        for(T el: elements){
-            if (el == null){
-                continue;
+
+        if (pointerR > pointerL) {
+            for (int i = pointerR; i < maxSize; i++) {
+                T el = elements[i];
+                if (el == null) {
+                    continue;
+                }
+                sb.append(el.name);
+                sb.append(", ");
             }
-            sb.append(el.name);
-            sb.append(", ");
+
+            for (int i = 0; i <= pointerL; i++) {
+                T el = elements[i];
+                if (el == null) {
+                    continue;
+                }
+                sb.append(el.name);
+                sb.append(", ");
+            }
         }
 
-        return sb.substring(0,sb.toString().length()-2);
+        for(int i = pointerR; i<= pointerL; i++){
+            T el = elements[i];
+                if (el == null){
+                    continue;
+                }
+                sb.append(el.name);
+                sb.append(", ");
+            }
+        sb.append("]");
+        return sb.substring(0,sb.toString().length()-3);
     }
 }
