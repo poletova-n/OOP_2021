@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef40948f-a777-41f0-83ff-b64f402200fc" name="Changes" comment="It is too hard. The whole day gona out">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/lab2/Main.java" afterDir="false" />
+    <list default="true" id="ef40948f-a777-41f0-83ff-b64f402200fc" name="Changes" comment="test for lab 5 - ad">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/lab3/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" afterDir="false" />
@@ -14,15 +14,13 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/lab2/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/lab2/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/lab3/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/lab3/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/lab5/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/lab5/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lab2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab2/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab5/Instruments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab5/Instruments.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab5/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab5/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/lab5/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/lab5/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,9 +35,17 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="OOP_Labs" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -81,9 +87,15 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/lab5" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.lab3" />
+    </key>
   </component>
-  <component name="RunManager" selected="Gradle.Main.StableJob">
-    <configuration name="Main (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Gradle.Main.getMapWhereFirstLatterIsKeyCorrect">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="lab5.Main" />
       <module name="OOP_Labs.main" />
       <extension name="coverage">
@@ -96,12 +108,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Example.shouldShowSimpleAssertion" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Main.getCountableSumOrElseNullIncorrect" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.exmple.Example.shouldShowSimpleAssertion&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.lab5.Main.getCountableSumOrElseNullIncorrect&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -117,12 +129,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Main.FileIsNotExist" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Main.getLastElementOrElseThrowCorrect" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.lab2.Main.FileIsNotExist&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.lab5.Main.getLastElementOrElseThrowCorrect&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -138,12 +150,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Main.IlleglaValueTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Main.getMapWhereFirstLatterIsKeyCorrect" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.lab2.Main.IlleglaValueTests&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.lab5.Main.getMapWhereFirstLatterIsKeyCorrect&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -159,12 +171,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Main.StableJob" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Main.getMapWhereFirstLatterIsKeyIncorrect" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.lab2.Main.StableJob&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.lab5.Main.getMapWhereFirstLatterIsKeyIncorrect&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -182,11 +194,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Main.StableJob" />
-        <item itemvalue="Gradle.Main.IlleglaValueTests" />
-        <item itemvalue="Gradle.Main.FileIsNotExist" />
-        <item itemvalue="Gradle.Example.shouldShowSimpleAssertion" />
-        <item itemvalue="Application.Main (2)" />
+        <item itemvalue="Gradle.Main.getMapWhereFirstLatterIsKeyCorrect" />
+        <item itemvalue="Gradle.Main.getMapWhereFirstLatterIsKeyIncorrect" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Gradle.Main.getCountableSumOrElseNullIncorrect" />
+        <item itemvalue="Gradle.Main.getLastElementOrElseThrowCorrect" />
       </list>
     </recent_temporary>
   </component>
@@ -202,7 +214,8 @@
       <workItem from="1630958975374" duration="367000" />
       <workItem from="1631624164773" duration="11785000" />
       <workItem from="1631640164639" duration="2428000" />
-      <workItem from="1631689717197" duration="1529000" />
+      <workItem from="1631689717197" duration="1636000" />
+      <workItem from="1631710595033" duration="11570000" />
     </task>
     <task id="LOCAL-00001" summary="created first lab">
       <created>1630956843239</created>
@@ -232,7 +245,42 @@
       <option name="project" value="LOCAL" />
       <updated>1631636244230</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Created junitTest for lab 2">
+      <created>1631691333089</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1631691333089</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add extra test">
+      <created>1631711237436</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1631711237436</updated>
+    </task>
+    <task id="LOCAL-00007" summary="rename exceptions to normal words">
+      <created>1631712571290</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1631712571290</updated>
+    </task>
+    <task id="LOCAL-00008" summary="due to tests find error in code">
+      <created>1631716205224</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1631716205224</updated>
+    </task>
+    <task id="LOCAL-00009" summary="test for lab 5 - ad">
+      <created>1631722113101</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1631722113101</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,6 +302,23 @@
     <MESSAGE value="created first lab" />
     <MESSAGE value="jdk 16" />
     <MESSAGE value="It is too hard. The whole day gona out" />
-    <option name="LAST_COMMIT_MESSAGE" value="It is too hard. The whole day gona out" />
+    <MESSAGE value="Created junitTest for lab 2" />
+    <MESSAGE value="add extra test" />
+    <MESSAGE value="rename exceptions to normal words" />
+    <MESSAGE value="due to tests find error in code" />
+    <MESSAGE value="No idea what to check and how" />
+    <MESSAGE value="test for lab 5 - ad" />
+    <option name="LAST_COMMIT_MESSAGE" value="test for lab 5 - ad" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/lab3/Functions.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

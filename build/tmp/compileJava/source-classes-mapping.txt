@@ -1,13 +1,13 @@
-lab5/Main.java
- lab5.Main
+lab3/animals/classification/Predatory.java
+ lab3.animals.classification.Predatory
 lab3/animals/classification/Chorda.java
  lab3.animals.classification.Chorda
 lab3/animals/classification/Tailless.java
  lab3.animals.classification.Tailless
-lab3/exceptions/OutOfCapacity.java
- lab3.exceptions.OutOfCapacity
 lab1/movement/Walk.java
  lab1.movement.Walk
+lab3/exceptions/QueueOverFlow.java
+ lab3.exceptions.QueueOverFlow
 lab3/animals/classification/RedBelliedToad.java
  lab3.animals.classification.RedBelliedToad
 lab3/animals/classification/Mammals.java
@@ -44,8 +44,10 @@ lab3/animals/classification/FarEasternToad.java
  lab3.animals.classification.FarEasternToad
 lab1/movement/Swim.java
  lab1.movement.Swim
-lab5/Instruments.java
- lab5.Instruments
+lab2/exceptions/DivideZero.java
+ lab2.exceptions.DivideZero
+lab3/exceptions/QueueUnderFlow.java
+ lab3.exceptions.QueueUnderFlow
 lab4/Main.java
  lab4.Main
 lab6/Main.java
@@ -77,9 +79,7 @@ lab3/animals/classification/DomesticCat.java
  lab3.animals.classification.DomesticCat
 lab2/exceptions/FileIsNotExist.java
  lab2.exceptions.FileIsNotExist
-lab3/exceptions/NotEnoughCapacity.java
- lab3.exceptions.NotEnoughCapacity
-lab2/exceptions/DivideZero.java
- lab2.exceptions.DivideZero
-lab3/animals/classification/Predatory.java
- lab3.animals.classification.Predatory
+lab5/Main.java
+ lab5.Main
+lab5/Instruments.java
+ lab5.Instruments
