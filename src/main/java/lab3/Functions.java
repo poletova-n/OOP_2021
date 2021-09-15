@@ -2,12 +2,12 @@ package lab3;
 
 import lab3.animals.classification.BlueTreeFrog;
 import lab3.animals.classification.*;
-import lab3.exceptions.NotEnoughCapacity;
-import lab3.exceptions.OutOfCapacity;
+import lab3.exceptions.QueueOverFlow;
+import lab3.exceptions.QueueUnderFlow;
 
 public class Functions {
 
-    public static Queue<Chorda> produce() throws NotEnoughCapacity {
+    public static Queue<Chorda> produce() throws QueueOverFlow {
         Queue<Chorda> queue = new Queue();
 
         queue.add(new BlueTreeFrog("Crazy Frog"));
@@ -27,7 +27,7 @@ public class Functions {
         return queue;
     }
 
-    public static void consume(Queue<Chorda> queue) throws OutOfCapacity, NotEnoughCapacity {
+    public static void consume(Queue<Chorda> queue) throws QueueUnderFlow, QueueOverFlow {
         Queue<Cat> cats = new Queue(queue.getSize());
         Queue<Bombinatoridae> bombinatoridaes = new Queue(queue.getSize());
         Queue<Dartfrog> dartfrogs = new Queue(queue.getSize());

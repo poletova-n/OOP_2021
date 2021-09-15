@@ -1,8 +1,8 @@
 package lab3;
 
 import lab3.animals.classification.Chorda;
-import lab3.exceptions.NotEnoughCapacity;
-import lab3.exceptions.OutOfCapacity;
+import lab3.exceptions.QueueOverFlow;
+import lab3.exceptions.QueueUnderFlow;
 
 public class Queue<T extends Chorda> {
 
@@ -30,9 +30,9 @@ public class Queue<T extends Chorda> {
         elements = (T[]) new Chorda[maxSize];
     }
 
-    public void add(T o) throws NotEnoughCapacity {
+    public void add(T o) throws QueueOverFlow {
         if (capacity.equals(maxSize))
-            throw new NotEnoughCapacity("There are no more capacity in the queue to add element.");
+            throw new QueueOverFlow("There are no more capacity in the queue to add element.");
         if (pointerL == maxSize - 1) {
             pointerL = -1;
         }
@@ -40,9 +40,9 @@ public class Queue<T extends Chorda> {
         elements[++pointerL] = o;
         capacity++;
     }
-    public T    pop() throws OutOfCapacity {
+    public T    pop() throws QueueUnderFlow {
         if (capacity.equals(0))
-            throw new OutOfCapacity("There are no more items in the queue.");
+            throw new QueueUnderFlow("There are no more items in the queue.");
         T temp = elements[pointerR++];
 
         if (pointerR.equals(maxSize)) {
