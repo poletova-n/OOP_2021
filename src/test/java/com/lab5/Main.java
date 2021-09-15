@@ -73,14 +73,14 @@ public class Main {
         List<Double> numbers = new LinkedList<>();
         numbers.add(1d);
         numbers.add(2d);
-        numbers.add(-1d);
-        numbers.add(-2d);
-        numbers.add(10d);
-        numbers.add(-10d);
         numbers.add(1d);
+        numbers.add(4d);
+        numbers.add(5d);
         numbers.add(2d);
-        Assertions.assertEquals(getSingularQuadratures(numbers)
-                .toString(), "[1.0, 4.0, 1.0, 4.0, 100.0, 100.0]");
+        numbers.add(7d);
+        numbers.add(8d);
+        Assertions.assertEquals("[16.0, 25.0, 49.0, 64.0]",getSingularQuadratures(numbers)
+                .toString());
     }
 
     @Test

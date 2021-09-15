@@ -1,6 +1,5 @@
 package lab5;
 
-import javax.swing.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -37,8 +36,9 @@ public class Instruments {
     public static List<Double> getSingularQuadratures(List<Double> numbers) {
         if (numbers == null || numbers.isEmpty())
             return null;
+
         return numbers.stream()
-                .distinct()
+                .filter(n -> Collections.frequency(numbers, n) == 1)
                 .map(i -> i * i)
                 .collect(Collectors.toList());
     }
