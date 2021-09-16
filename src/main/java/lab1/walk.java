@@ -1,6 +1,6 @@
-package com.example.lab1;
+package lab1;
 
-public class walk implements Activity{
+public class Walk implements Activity{
     public void move(Plase now,Plase future)
     {
         if(now.comparePlase(future))

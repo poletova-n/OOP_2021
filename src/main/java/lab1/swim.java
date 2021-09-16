@@ -1,6 +1,6 @@
-package com.example.lab1;
+package lab1;
 
-public class swim implements Activity
+public class Swim implements Activity
 {
     public void move(Plase now,Plase future)
     {

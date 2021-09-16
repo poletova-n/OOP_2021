@@ -1,19 +1,13 @@
-package com.example.lab1;
+package lab1;
 
 import java.io.InputStream;
 import java.util.Scanner;
 
-public class trip {
+public class Trip {
     public static void main(String[] args){
         Hero myHero=new Hero();
 
-        System.out.println("Where are you?");
         Scanner in = new Scanner(System.in);
-        int x = in.nextInt();
-        int y = in.nextInt();
-        int z = in.nextInt();
-
-        Plase start=new Plase(x,y,z);
 
         System.out.println("What do you watn to do?" +
                 "1-walk , 2-run ,3-swim ,4-jump , 5-fly 6- to end");
@@ -28,28 +22,28 @@ public class trip {
 
             if(comand==1)
             {
-                myHero.setActivity(new walk());
-                myHero.executeActivity(start,finish);
+                myHero.setActivity(new Walk());
+                myHero.executeActivity(finish);
             }
             else  if(comand==2)
             {
-                myHero.setActivity(new run());
-                myHero.executeActivity(start,finish);
+                myHero.setActivity(new Run());
+                myHero.executeActivity(finish);
             }
             else  if(comand==3)
             {
-                myHero.setActivity(new swim());
-                myHero.executeActivity(start,finish);
+                myHero.setActivity(new Swim());
+                myHero.executeActivity(finish);
             }
             else  if(comand==4)
             {
-                myHero.setActivity(new jump());
-                myHero.executeActivity(start,finish);
+                myHero.setActivity(new Jump());
+                myHero.executeActivity(finish);
             }
             else  if(comand==5)
             {
-                myHero.setActivity( new fly());
-                myHero.executeActivity(start,finish);
+                myHero.setActivity( new Fly());
+                myHero.executeActivity(finish);
             }
             System.out.println("What do you watn to do now?" +
                     "1-walk , 2-run ,3-swim ,4-jump , 5-fly ,6- to end");
@@ -57,7 +51,7 @@ public class trip {
         }
         in.close();
         System.out.println("The end of trip on");
-        start.tellAbout();
+        myHero.getStart().tellAbout();
     }
 
 }

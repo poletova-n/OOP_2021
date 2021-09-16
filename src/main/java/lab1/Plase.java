@@ -1,4 +1,4 @@
-package com.example.lab1;
+package lab1;
 
 public class Plase
 {

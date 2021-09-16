@@ -1,6 +1,6 @@
-package com.example.lab1;
+package lab1;
 
-public class jump implements Activity
+public class Jump implements Activity
 {
     public void move(Plase now,Plase future)
     {
@@ -8,7 +8,7 @@ public class jump implements Activity
         {
             System.out.println("You're already here!");
         }
-        else if (now.getZ()-future.getZ()>1)
+        else if (now.getZ()-future.getZ()>1 || future.getZ()-now.getZ()>1 )
         {
             System.out.println("You can't jump that high");
         }
