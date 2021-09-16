@@ -48,7 +48,7 @@ public class Matrix {
     private void fillMatrix() {
         m = new double[N][N];
 
-        try {
+
             for (int i = 0; i < N; i++) {
                 for (int j = 0; j < N; j++) {
                     double rand = Math.round((Math.random() * (N  * 2)) - N);
@@ -56,9 +56,7 @@ public class Matrix {
                     m[i][j] =  rand;
                 }
             }
-        } catch (OutOfMemoryError e) {
-            e.printStackTrace();
-        }
+
 
 
     }
@@ -66,15 +64,13 @@ public class Matrix {
     public void rotate() {
         double[][] mRotated = new double[N][N];
 
-        try {
+
             for (int i = 0; i < N; i++) {
                 for (int j = 0; j < N; j++) {
                     mRotated[i][j] = m[j][N - i - 1];
                 }
             }
-        } catch (OutOfMemoryError e) {
-            e.printStackTrace();
-        }
+
 
         m = mRotated;
     }
@@ -106,12 +102,13 @@ public class Matrix {
                     double sum =  sumOfNeighbours(i,j);
 
                     if (sum == 0) {
-                        throw new DivisionByZeroException("Division by zero occurred");
+                        sum = Double.POSITIVE_INFINITY;
+                       
                     }
                     mDiveded[i][j] = m[i][j] / sum;
                 }
             }
-        } catch (OutOfMemoryError | ArithmeticException e) {
+        } catch (ArithmeticException e) {
             e.printStackTrace();
         }
         m = mDiveded;
