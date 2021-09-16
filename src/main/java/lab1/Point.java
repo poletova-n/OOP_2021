@@ -1,13 +1,14 @@
 package lab1;
 
-import lombok.Getter;
-import lombok.Setter;
-
 public class Point {
-    @Getter
-    @Setter
-    private int x;
-    @Getter
-    @Setter
-    private int y;
+    private final int x;
+    private final int y;
+    public Point(int x, int y)
+    {
+        this.x=x;
+        this.y=y;
+    }
+    public String coordinates(){
+        return ("{ " + x + " ; " + y + " }");
+    }
 }
