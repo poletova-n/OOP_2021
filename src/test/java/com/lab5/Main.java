@@ -51,7 +51,6 @@ public class Main {
         stringsCR.add("_new_HELLO");
         stringsCR.add("_new_DEAR");
         stringsCR.add("_new_GIRL");
-        stringsCR.add("_new_");
         stringsCR.add("_new_!");
 
         makeUpperCaseAndAddPrefix(strings);
@@ -123,11 +122,9 @@ public class Main {
         stringList.add("*c");stringList.add("cot");
         stringList.add("cat");stringList.add("cit");
 
-        Assertions.assertNull(getListStartingWithLetterAndSort('*', stringList));
+        Assertions.assertEquals(getListStartingWithLetterAndSort('*', stringList), null);
 
         getListStartingWithLetterAndSort('a', null); // nothrow
-
-
     }
 
     @Test
@@ -192,19 +189,14 @@ public class Main {
         List<String> stringList = new ArrayList<>();
         stringList.add("Hello");
         stringList.add("hello");
-        stringList.add("Ice Cream");
-        stringList.add("high");
         stringList.add("Ice");
         stringList.add("sky");
-        stringList.add("hi");
-        stringList.add("set");
-        stringList.add("room");
         stringList.add("red");
         stringList.add("low");
         stringList.add("ice");
-        stringList.add("high");
+        stringList.add("ahigh");
         Assertions.assertEquals(getMapWhereFirstLatterIsKey(stringList).toString(),
-                "{r=[room, red], s=[sky, set], h=[hello, high, hi], H=[Hello], i=[ice], I=[Ice Cream, Ice], l=[low]}");
+                "{a=high, r=ed, s=ky, H=ello, h=ello, I=ce, i=ce, l=ow}");
     }
 
     @Test
