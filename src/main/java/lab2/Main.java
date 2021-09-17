@@ -129,9 +129,10 @@ public class Main {
             throw new FileIsNotExist("Output file not found!");
         try (FileOutputStream writer = new FileOutputStream(OUTPUT_FILE_NAME)) {
 
-            writing(rotate90Degrees(matrix), writer);
-            writing(rotate90Degrees(rotate90Degrees(matrix)), writer);
             writing(rotate90Degrees(rotate90Degrees(rotate90Degrees(matrix))), writer);
+            writing(rotate90Degrees(rotate90Degrees(matrix)), writer);
+            writing(rotate90Degrees(matrix), writer);
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

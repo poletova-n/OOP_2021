@@ -1,5 +1,5 @@
-lab3/animals/classification/Predatory.java
- lab3.animals.classification.Predatory
+lab5/Main.java
+ lab5.Main
 lab3/animals/classification/Chorda.java
  lab3.animals.classification.Chorda
 lab3/animals/classification/Tailless.java
@@ -44,8 +44,8 @@ lab3/animals/classification/FarEasternToad.java
  lab3.animals.classification.FarEasternToad
 lab1/movement/Swim.java
  lab1.movement.Swim
-lab2/exceptions/DivideZero.java
- lab2.exceptions.DivideZero
+lab5/Instruments.java
+ lab5.Instruments
 lab3/exceptions/QueueUnderFlow.java
  lab3.exceptions.QueueUnderFlow
 lab4/Main.java
@@ -79,7 +79,7 @@ lab3/animals/classification/DomesticCat.java
  lab3.animals.classification.DomesticCat
 lab2/exceptions/FileIsNotExist.java
  lab2.exceptions.FileIsNotExist
-lab5/Main.java
- lab5.Main
-lab5/Instruments.java
- lab5.Instruments
+lab2/exceptions/DivideZero.java
+ lab2.exceptions.DivideZero
+lab3/animals/classification/Predatory.java
+ lab3.animals.classification.Predatory

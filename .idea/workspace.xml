@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef40948f-a777-41f0-83ff-b64f402200fc" name="Changes" comment="correct main" />
+    <list default="true" id="ef40948f-a777-41f0-83ff-b64f402200fc" name="Changes" comment="repair function about quadrates as first type was incorrect understood">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab2/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,7 +81,7 @@
       <recent name="com.lab3" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Main.getSingularQuadraturesCorrect">
+  <component name="RunManager" selected="Gradle.Main.StableJob">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="lab5.Main" />
       <module name="OOP_Labs.main" />
@@ -91,12 +95,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main.getCountableSumOrElseNullIncorrect" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Main.StableJob" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.lab5.Main.getCountableSumOrElseNullIncorrect&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.lab2.Main.StableJob&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -177,11 +181,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.Main.StableJob" />
         <item itemvalue="Gradle.Main.getSingularQuadraturesCorrect" />
         <item itemvalue="Gradle.Main.getMapWhereFirstLatterIsKeyCorrect" />
         <item itemvalue="Gradle.Main.getMapWhereFirstLatterIsKeyIncorrect" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Gradle.Main.getCountableSumOrElseNullIncorrect" />
       </list>
     </recent_temporary>
   </component>
@@ -199,7 +203,8 @@
       <workItem from="1631640164639" duration="2428000" />
       <workItem from="1631689717197" duration="1636000" />
       <workItem from="1631710595033" duration="12283000" />
-      <workItem from="1631735292478" duration="1246000" />
+      <workItem from="1631735292478" duration="1464000" />
+      <workItem from="1631875346494" duration="376000" />
     </task>
     <task id="LOCAL-00001" summary="created first lab">
       <created>1630956843239</created>
@@ -292,7 +297,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631724303065</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="repair function about quadrates as first type was incorrect understood">
+      <created>1631736695100</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1631736695100</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -324,7 +336,8 @@
     <MESSAGE value="done tests" />
     <MESSAGE value="something changes in this files, I do not know." />
     <MESSAGE value="correct main" />
-    <option name="LAST_COMMIT_MESSAGE" value="correct main" />
+    <MESSAGE value="repair function about quadrates as first type was incorrect understood" />
+    <option name="LAST_COMMIT_MESSAGE" value="repair function about quadrates as first type was incorrect understood" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
