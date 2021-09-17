@@ -59,7 +59,7 @@ public class Main {
         return collection
                 .stream()
                 .filter(s -> s.length() >= 2)
-                .collect(Collectors.toMap((m)->m.charAt(0), (m)->m.substring(1,m.length())));
+                .collect(Collectors.toMap((m)->m.charAt(0), (m)->m.substring(1)));
     }
 
     public static void main(String[] args) {
