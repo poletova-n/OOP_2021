@@ -51,31 +51,35 @@ public class Main {
 
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
+                try {
+                    if (i == 0 && j == 0) {
+                        sum = matrix[i][j + 1] + matrix[i + 1][j];
+                    } else if (i == 0 && j == N - 1) {
+                        sum = matrix[i][j - 1] + matrix[i + 1][j];
+                    } else if (i == N - 1 && j == 0) {
+                        sum = matrix[i - 1][j] + matrix[i][j + 1];
+                    } else if (i == N - 1 && j == N - 1) {
+                        sum = matrix[i][j - 1] + matrix[i - 1][j];
+                    } else if (i == 0 && j > 0 && j < N - 1) {
+                        sum = matrix[i][j - 1] + matrix[i + 1][j] + matrix[i][j + 1];
+                    } else if (i == N - 1 && j > 0 && j < N - 1) {
+                        sum = matrix[i][j - 1] + matrix[i - 1][j] + matrix[i][j + 1];
+                    } else if (j == 0 && i > 0 && i < N - 1) {
+                        sum = matrix[i - 1][j] + matrix[i][j + 1] + matrix[i + 1][j];
+                    } else if (j == N - 1 && i > 0 && i < N - 1) {
+                        sum = matrix[i - 1][j] + matrix[i][j - 1] + matrix[i + 1][j];
 
-                if (i == 0 && j == 0) {
-                    sum = matrix[i][j + 1] + matrix[i + 1][j];
-                } else if (i == 0 && j == N - 1) {
-                    sum = matrix[i][j - 1] + matrix[i + 1][j];
-                } else if (i == N - 1 && j == 0) {
-                    sum = matrix[i - 1][j] + matrix[i][j + 1];
-                } else if (i == N - 1 && j == N - 1) {
-                    sum = matrix[i][j - 1] + matrix[i - 1][j];
-                } else if (i == 0 && j > 0 && j < N - 1) {
-                    sum = matrix[i][j - 1] + matrix[i + 1][j] + matrix[i][j + 1];
-                } else if (i == N - 1 && j > 0 && j < N - 1) {
-                    sum = matrix[i][j - 1] + matrix[i - 1][j] + matrix[i][j + 1];
-                } else if (j == 0 && i > 0 && i < N - 1) {
-                    sum = matrix[i - 1][j] + matrix[i][j + 1] + matrix[i + 1][j];
-                } else if (j == N - 1 && i > 0 && i < N - 1) {
-                    sum = matrix[i - 1][j] + matrix[i][j - 1] + matrix[i + 1][j];
-
-                } else {
-                    sum = matrix[i][j + 1] + matrix[i][j - 1] + matrix[i + 1][j] + matrix[i - 1][j];
+                    } else {
+                        sum = matrix[i][j + 1] + matrix[i][j - 1] + matrix[i + 1][j] + matrix[i - 1][j];
+                    }
+                    if (sum != 0.00)
+                        result[i][j] = (double) Math.round((matrix[i][j] / sum) * 100) / 100;
+                    else
+                        throw new DivideZero("In matrix one divider is equal '0'.");
+                } catch (DivideZero exception) {
+                    result[i][j] = Double.POSITIVE_INFINITY;
+                    exception.printStackTrace();
                 }
-                if (sum != 0.0000000000)
-                    result[i][j] = (double) Math.round((matrix[i][j] / sum) * 100) / 100;
-                else
-                    throw new DivideZero("In matrix one divider is equal '0'.");
             }
         }
         return result;
