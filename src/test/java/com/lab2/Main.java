@@ -14,11 +14,13 @@ import static lab2.Main.*;
 
 public class Main {
 
+    public static String ERRORFILE = "/Users/evgenijsmirnov/IdeaProjects/OOP_2021/src/main/java/lab2/files/errorText.txt";
+
     @Test
     @DisplayName("Correct number")
     public void CorrectNumberInFILE() throws EmptyFile, IllegalValue, FileIsNotExist {
         int N = readFromFile(INPUT_FILE_NAME);
-        Assertions.assertEquals(23, N);
+        Assertions.assertEquals(3, N);
     }
 
     @Test
@@ -32,6 +34,7 @@ public class Main {
     }
 
     @Test
+    @Deprecated
     @DisplayName("File is Empty")
     public void FileIsEmptyTest(){
         Throwable throwable = catchThrowable(()->{
@@ -45,13 +48,13 @@ public class Main {
     @DisplayName("Char instead of integer number")
     public void IlleglaValueCharTests(){
         Throwable charValue = catchThrowable(()->{
-            int N = readFromFile(INPUT_FILE_NAME);
+            int N = readFromFile(ERRORFILE);
         });
         assertThat(charValue).isInstanceOf(IllegalValue.class);
         assertThat(charValue.getMessage()).isNotBlank();
 
         Throwable NotIntegerValue = catchThrowable(()->{
-            int N = readFromFile(INPUT_FILE_NAME);
+            int N = readFromFile(ERRORFILE);
         });
         assertThat(NotIntegerValue).isInstanceOf(IllegalValue.class);
         assertThat(NotIntegerValue.getMessage()).isNotBlank();
@@ -63,7 +66,7 @@ public class Main {
     public void IlleglaValueDoubleTests(){
 
         Throwable NotIntegerValue = catchThrowable(()->{
-            int N = readFromFile(INPUT_FILE_NAME);
+            int N = readFromFile(ERRORFILE);
         });
         assertThat(NotIntegerValue).isInstanceOf(IllegalValue.class);
         assertThat(NotIntegerValue.getMessage()).isNotBlank();
@@ -105,6 +108,7 @@ public class Main {
     }
 
     @Test
+    @Deprecated
     @DisplayName("Check predictable results")
     public void DivideZeroTest() {
 
