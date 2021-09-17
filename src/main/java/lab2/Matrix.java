@@ -97,7 +97,7 @@ public class Matrix
 		{
 			for (int j = 0; j < size; j++)
 			{
-				double elem = ((Math.random() * (size * 2)) - size);
+				double elem = Math.round((Math.random() * (size * 2)) - size);
 				tempMatrix[i][j] = elem;
 			}
 		}
@@ -109,29 +109,30 @@ public class Matrix
 	{
 		double[][] tempMatrix = new double[size][size];
 		
-		try 
+		for (int i = 0; i < size; i++)
 		{
-			for (int i = 0; i < size; i++)
+			for (int j = 0; j < size; j++)
 			{
-				for (int j = 0; j < size; j++)
+				double tempSum = getSumOfNeighbors(i, j);	
+				
+				try 
 				{
-					double tempSum = getSumOfNeighbors(i, j);	
-					
 					if (tempSum == 0)
 					{
-						throw new DivisionByZero("Error! Division by zero!");
+						throw new DivisionByZero("Division by zero!");
 					}
-					
+
 					tempMatrix[i][j] = matrix[i][j] / tempSum;
-				}		
-			}
-			
-			matrix = Arrays.copyOf(tempMatrix, size);
+				}
+				catch (DivisionByZero ex)
+				{
+					tempMatrix[i][j] = Double.POSITIVE_INFINITY;
+				}
+				
+			}		
 		}
-		catch (DivisionByZero ex)
-		{
-			ex.printStackTrace();
-		}
+		
+		matrix = Arrays.copyOf(tempMatrix, size);
 	}
 	
 	private double getSumOfNeighbors(int i, int j)
