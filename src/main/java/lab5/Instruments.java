@@ -49,7 +49,7 @@ public class Instruments {
                 return null;
         }
 
-        if (blank.isEmpty())
+        if ( blank == null || blank.isEmpty())
             return null;
 
         return blank.stream()
@@ -78,13 +78,12 @@ public class Instruments {
         return sum;
     }
 
-    public static Map<Character, List<String>> getMapWhereFirstLatterIsKey(List<String> list) {
+    public static Map<Character, String> getMapWhereFirstLatterIsKey(List<String> list) {
         if (list == null || list.isEmpty())
             return null;
-        Map<Character, List<String>> result = list.stream()
+        Map<Character, String> result = list.stream()
                 .filter(s -> !Objects.equals(s, "") && s.length()>0)
-                .distinct()
-                .collect(Collectors.groupingBy(s -> s.charAt(0)));
+                .collect(Collectors.toMap((i)->i.charAt(0), (i)->i.substring(1)));
         if (result.isEmpty())
             return null;
         return result;
