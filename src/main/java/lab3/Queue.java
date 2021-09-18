@@ -1,109 +1,71 @@
 package lab3;
 
-import lab3.animals.classification.Chorda;
-import lab3.exceptions.QueueOverFlow;
-import lab3.exceptions.QueueUnderFlow;
+public class Queue<T> {
 
-import java.util.Objects;
-
-public class Queue<T extends Chorda> {
-
-    private Integer   maxSize;
-    private Integer   capacity;
-    private final T[] elements;
-
-    private Integer pointerR;
-    private Integer pointerL;
-
-    {
-      maxSize = 100;
-      capacity = 0;
-      pointerR = 0;
-      pointerL = -1;
+    class Node {
+        private Node next;
+        private final T element;
+        public Node(T el) {
+            element = el;
+            next = null;
+        }
+        public T getElement() {
+            return element;
+        }
     }
+
+    private Integer size = 0;
+    private Node head = null;
 
     public Queue() {
-        elements = (T[]) new Chorda[maxSize];
     }
 
-    public Queue(int size) {
-        if (size > 0)
-            maxSize = size;
-        elements = (T[]) new Chorda[maxSize];
-    }
-
-    public void add(T o) throws QueueOverFlow {
-        if (capacity.equals(maxSize))
-            throw new QueueOverFlow("There are no more capacity in the queue to add element.");
-        if (pointerL == maxSize - 1) {
-            pointerL = -1;
+    public void add(Object el) {
+        if (head == null)
+            head = new Node((T) el);
+        else {
+            Node currentNode = head;
+            while (currentNode.next != null)
+                currentNode = currentNode.next;
+            currentNode.next = new Node((T) el);
         }
-
-        elements[++pointerL] = o;
-        capacity++;
+        size++;
     }
-    public T    pop() throws QueueUnderFlow {
-        if (capacity.equals(0))
+    public T pop() throws QueueUnderFlow {
+        if (head == null)
             throw new QueueUnderFlow("There are no more items in the queue.");
-        T temp = elements[pointerR++];
 
-        if (pointerR.equals(maxSize)) {
-            pointerR = 0;
-        }
-        capacity--;
-        return temp;
+        Node temp = head;
+        head = head.next;
+
+        size--;
+        return temp.getElement();
     }
-    public boolean isFull() {
-        return capacity == maxSize - 1;
-    }
-    public boolean isEmpty() {
-        return capacity == 0;
-    }
-    public Integer getSize() {
-        return maxSize;
-    }
+
     public T get(){
-        return elements[pointerR];
+        return head.getElement();
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    public Integer getSize() {
+        return size;
     }
 
     @Override
     public String toString() {
-        return "Elements=" + preWrite(elements)+ "]";
-    }
-
-    private String preWrite(T[] elements){
         StringBuilder sb = new StringBuilder();
-        sb.append("[");
-
-        if (pointerR > pointerL) {
-            for (int i = pointerR; i < maxSize; i++) {
-                T el = elements[i];
-                if (el == null) {
-                    continue;
-                }
-                sb.append(el.name);
-                sb.append(", ");
-            }
-
-            for (int i = 0; i <= pointerL; i++) {
-                T el = elements[i];
-                if (el == null) {
-                    continue;
-                }
-                sb.append(el.name);
-                sb.append(", ");
-            }
+        Node currentNode = head;
+        while (currentNode.next != null) {
+            sb.append(currentNode.getElement());
+            sb.append(", ");
+            currentNode = currentNode.next;
         }
-
-        for(int i = pointerR; i<= pointerL; i++){
-            T el = elements[i];
-                if (el == null){
-                    continue;
-                }
-                sb.append(el.name);
-                sb.append(", ");
-            }
-        sb.append("]");
-        return sb.substring(0,sb.toString().length()-3);
+        sb.append(currentNode.getElement());
+        return "Elements=" + "[" + sb + "]";
     }
+
 }
+

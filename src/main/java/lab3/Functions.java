@@ -1,14 +1,11 @@
 package lab3;
 
-import lab3.animals.classification.BlueTreeFrog;
 import lab3.animals.classification.*;
-import lab3.exceptions.QueueOverFlow;
-import lab3.exceptions.QueueUnderFlow;
 
 public class Functions {
 
-    public static Queue<Chorda> produce() throws QueueOverFlow {
-        Queue<Chorda> queue = new Queue();
+    public static Queue<? extends Chorda> produce() {
+        Queue<? extends Chorda> queue = new Queue();
 
         queue.add(new BlueTreeFrog("Crazy Frog"));
         queue.add(new BlueTreeFrog("kva"));
@@ -27,18 +24,18 @@ public class Functions {
         return queue;
     }
 
-    public static void consume(Queue<Chorda> queue) throws QueueUnderFlow, QueueOverFlow {
-        Queue<Cat> cats = new Queue(queue.getSize());
-        Queue<Bombinatoridae> bombinatoridaes = new Queue(queue.getSize());
-        Queue<Dartfrog> dartfrogs = new Queue(queue.getSize());
+    public static void consume(Queue<? extends Chorda> queue) throws QueueUnderFlow {
+        Queue<? super Cat> cats = new Queue();
+        Queue<? super Bombinatoridae> bombinatoridaes = new Queue();
+        Queue<? super Dartfrog> dartfrogs = new Queue();
 
         while (!queue.isEmpty()) {
             if (queue.get() instanceof Cat) {
-                cats.add((Cat) queue.pop());
+                cats.add(queue.pop());
             } else if (queue.get() instanceof Bombinatoridae) {
-                bombinatoridaes.add((Bombinatoridae) queue.pop());
+                bombinatoridaes.add(queue.pop());
             } else if (queue.get() instanceof Dartfrog) {
-                dartfrogs.add((Dartfrog) queue.pop());
+                dartfrogs.add(queue.pop());
             }
         }
 

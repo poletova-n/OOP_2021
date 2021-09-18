@@ -1,4 +1,4 @@
-package lab3.exceptions;
+package lab3;
 
 public class QueueUnderFlow extends Exception{
     public QueueUnderFlow(String message) {
