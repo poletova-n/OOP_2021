@@ -5,7 +5,6 @@ import java.util.stream.Collectors;
 
 public class StreamAPILab {
 
-    //1 - completed
     public static double getAverageFromList(List<Integer> list){
 
         return list.stream()
@@ -15,7 +14,6 @@ public class StreamAPILab {
 
     }
 
-    // 2 - completed
     public static List<String> stringToUpperCaseInList(List<String>list){
 
         return list.stream()
@@ -25,7 +23,6 @@ public class StreamAPILab {
 
     }
 
-    //3 - completed
     public static List<Integer> squaredUniqueElements(List<Integer> list){
 
         return list.stream()
@@ -35,7 +32,6 @@ public class StreamAPILab {
 
     }
 
-    //4 - completed
     public static List<String> returnRequestedLetterStrings(List<String> list, char letter){
 
         return list.stream()
@@ -45,7 +41,6 @@ public class StreamAPILab {
 
     }
 
-    //5 - completed
     public static <T> T returnLastOrThrowException(Collection<T> collection) throws NoSuchElementException {
 
         if (collection.isEmpty()){
@@ -58,7 +53,6 @@ public class StreamAPILab {
 
     }
 
-    //6 - completed
     public static int returnSumOfEven(List<Integer> array){
 
         return array.stream()
@@ -68,7 +62,6 @@ public class StreamAPILab {
 
     }
 
-    //7 - completed
     public static Map<Character, String> returnMapFromList(List<String> list) {
 
         return list
