@@ -1,5 +1,8 @@
 package lab3;
 
+import lab3.exceptions.QueueOverFlow;
+import lab3.exceptions.QueueUnderFlow;
+
 public class Queue<T> {
 
     class Node {
@@ -15,21 +18,27 @@ public class Queue<T> {
     }
 
     private Integer size = 0;
-    private Node head = null;
+    private Integer capacity = 0;
+    private Node    head = null;
 
-    public Queue() {
+    public Queue(int size) {
+        this.size = size;
     }
 
-    public void add(Object el) {
+    public void add(Object el) throws QueueOverFlow {
+        if (size.equals(capacity))
+            throw new QueueOverFlow( "Element: " + el.toString() + " was not added, because queueu is full");
+
         if (head == null)
             head = new Node((T) el);
+
         else {
             Node currentNode = head;
             while (currentNode.next != null)
                 currentNode = currentNode.next;
             currentNode.next = new Node((T) el);
         }
-        size++;
+        capacity++;
     }
     public T pop() throws QueueUnderFlow {
         if (head == null)
@@ -38,18 +47,19 @@ public class Queue<T> {
         Node temp = head;
         head = head.next;
 
-        size--;
+        capacity--;
         return temp.getElement();
     }
-
     public T get(){
         return head.getElement();
     }
 
-    public boolean isEmpty() {
-        return size == 0;
+    public boolean isFull() {
+        return size.equals(capacity);
     }
-
+    public boolean isEmpty() {
+        return capacity == 0;
+    }
     public Integer getSize() {
         return size;
     }
@@ -58,6 +68,9 @@ public class Queue<T> {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         Node currentNode = head;
+        if (head == null)
+            return "Elements=" + "[]";
+
         while (currentNode.next != null) {
             sb.append(currentNode.getElement());
             sb.append(", ");
@@ -66,6 +79,5 @@ public class Queue<T> {
         sb.append(currentNode.getElement());
         return "Elements=" + "[" + sb + "]";
     }
-
 }
 

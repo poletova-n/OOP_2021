@@ -1,47 +1,43 @@
 package lab3;
 
 import lab3.animals.classification.*;
+import lab3.animals.classification.cats.*;
+import lab3.exceptions.QueueOverFlow;
+import lab3.exceptions.QueueUnderFlow;
 
 public class Functions {
 
-    public static Queue<? extends Chorda> produce() {
-        Queue<? extends Chorda> queue = new Queue();
+    public static int size = 7;
 
-        queue.add(new BlueTreeFrog("Crazy Frog"));
-        queue.add(new BlueTreeFrog("kva"));
-        queue.add(new BlueTreeFrog("kva kva"));
-        queue.add(new ColoringTreeFrog("Tree frogger"));
+    public static Queue<? extends Chorda> produce() throws QueueOverFlow {
+        Queue<? extends Chorda> queue = new Queue(2 * size);
 
-        queue.add(new DomesticCat("Pice"));
-        queue.add(new DomesticCat("Kitty"));
-        queue.add(new DomesticCat("Kitten"));
-        queue.add(new ForestCat("Big cat"));
-        queue.add(new ForestCat("Mrrr..."));
+        Chorda[] chordCats = new Chorda[size];
+        chordCats[0] = new Chorda("c1");
+        chordCats[1] = new Mammals("m1");
+        chordCats[2] = new Predatory("p1");
+        chordCats[3] = new Feline("f1");
+        chordCats[4] = new Cat("c1");
+        chordCats[5] = new DomesticCat("d1");
+        chordCats[6] = new ForestCat("fr1");
 
-        queue.add(new FarEasternToad("Kvakushka"));
-        queue.add(new RedBelliedToad("Lagushka"));
+        for (int i = 0; i < size; i++)
+            queue.add(chordCats[i]);
 
+
+        System.out.println("Upper bound queue:\n" + queue + "\n");
         return queue;
     }
 
-    public static void consume(Queue<? extends Chorda> queue) throws QueueUnderFlow {
-        Queue<? super Cat> cats = new Queue();
-        Queue<? super Bombinatoridae> bombinatoridaes = new Queue();
-        Queue<? super Dartfrog> dartfrogs = new Queue();
+    public static void consume(Queue<? extends Chorda> queue) throws QueueUnderFlow, QueueOverFlow {
+        Queue<? super Feline> superFeline = new Queue(size);
 
-        while (!queue.isEmpty()) {
-            if (queue.get() instanceof Cat) {
-                cats.add(queue.pop());
-            } else if (queue.get() instanceof Bombinatoridae) {
-                bombinatoridaes.add(queue.pop());
-            } else if (queue.get() instanceof Dartfrog) {
-                dartfrogs.add(queue.pop());
-            }
-        }
+        while (!queue.isEmpty())
+            if (!(queue.get() instanceof Feline) || (queue.get()).getClass().equals(Feline.class))
+                superFeline.add(queue.pop());
+            else
+                queue.pop();
 
-        System.out.println(cats);
-        System.out.println(bombinatoridaes);
-        System.out.println(dartfrogs);
+        System.out.println("Lower bound queue:\n" + superFeline);
     }
-
 }

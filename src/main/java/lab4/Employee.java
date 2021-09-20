@@ -28,11 +28,11 @@ public class Employee {
         this.salary = salary;
     }
 
-    @HowMuchHowMany(100)
+    @HowMuchHowMany(10)
     private void sayHi(){
         System.out.println("Hi, I am " + name + ".");
     }
-    @HowMuchHowMany(100)
+    @HowMuchHowMany(10)
     private double getSalary(int hours) {
         return salary * hours;
     }

@@ -1,6 +1,5 @@
 package com.lab5;
 
-import lab3.exceptions.QueueUnderFlow;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

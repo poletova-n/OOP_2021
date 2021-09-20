@@ -4,10 +4,51 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef40948f-a777-41f0-83ff-b64f402200fc" name="Changes" comment="repair function about quadrates as first type was incorrect understood">
+    <list default="true" id="ef40948f-a777-41f0-83ff-b64f402200fc" name="Changes" comment="new tests for lab3">
+      <change afterPath="$PROJECT_DIR$/src/main/java/lab3/animals/classification/DEPRECATED/frogs/Amphibian.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lab3/animals/classification/DEPRECATED/frogs/Dartfrog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lab3/animals/classification/DEPRECATED/frogs/Tailless.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lab3/animals/classification/DEPRECATED/frogs/TreeFrog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/lab2/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/lab2/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/lab3/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/lab3/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/lab5/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/lab5/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lab2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab2/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/Functions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab3/Functions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab3/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/Queue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab3/Queue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/QueueUnderFlow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab3/exceptions/QueueUnderFlow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/animals/classification/Amphibian.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/animals/classification/BlueTreeFrog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/animals/classification/Bombinatoridae.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/animals/classification/Cat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab3/animals/classification/cats/Cat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/animals/classification/Chorda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab3/animals/classification/Chorda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/animals/classification/ColoringTreeFrog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab3/animals/classification/DEPRECATED/frogs/ColoringTreeFrog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/animals/classification/Dartfrog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/animals/classification/DomesticCat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab3/animals/classification/cats/DomesticCat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/animals/classification/FarEasternToad.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/animals/classification/Feline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab3/animals/classification/cats/Feline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/animals/classification/ForestCat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab3/animals/classification/cats/ForestCat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/animals/classification/Mammals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab3/animals/classification/cats/Mammals.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/animals/classification/Predatory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab3/animals/classification/cats/Predatory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/animals/classification/RedBelliedToad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab3/animals/classification/DEPRECATED/frogs/RedBelliedToad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/animals/classification/Tailless.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/animals/classification/Toad.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/animals/classification/TreeFrog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/info/Diagrama.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/info/blueFrog.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/info/yellowFrog.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab4/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab4/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/lab3/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/lab3/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/lab5/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/lab5/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +113,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/lab3/animals/classification" />
+      <recent name="$PROJECT_DIR$/src/main/java/lab3/info" />
       <recent name="$PROJECT_DIR$/src/main/java/lab5" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -81,13 +124,13 @@
       <recent name="com.lab3" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Main.StableJob">
+  <component name="RunManager" selected="Gradle.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="lab5.Main" />
+      <option name="MAIN_CLASS_NAME" value="lab3.Main" />
       <module name="OOP_Labs.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="lab5.*" />
+          <option name="PATTERN" value="lab3.exceptions.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -95,12 +138,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main.StableJob" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Main" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.lab2.Main.StableJob&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.lab3.Main&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -116,12 +159,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Main.getMapWhereFirstLatterIsKeyCorrect" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Main.IlleglaValueCharTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.lab5.Main.getMapWhereFirstLatterIsKeyCorrect&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.lab2.Main.IlleglaValueCharTests&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -137,12 +180,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Main.getMapWhereFirstLatterIsKeyIncorrect" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Main.IlleglaValueDoubleTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.lab5.Main.getMapWhereFirstLatterIsKeyIncorrect&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.lab2.Main.IlleglaValueDoubleTests&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -158,12 +201,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Main.getSingularQuadraturesCorrect" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Main.QueueUnderflowExceptionTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.lab5.Main.getSingularQuadraturesCorrect&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.lab3.Main.QueueUnderflowExceptionTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -181,11 +224,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Main.StableJob" />
-        <item itemvalue="Gradle.Main.getSingularQuadraturesCorrect" />
-        <item itemvalue="Gradle.Main.getMapWhereFirstLatterIsKeyCorrect" />
-        <item itemvalue="Gradle.Main.getMapWhereFirstLatterIsKeyIncorrect" />
+        <item itemvalue="Gradle.Main" />
+        <item itemvalue="Gradle.Main.QueueUnderflowExceptionTest" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Gradle.Main" />
+        <item itemvalue="Gradle.Main.IlleglaValueDoubleTests" />
       </list>
     </recent_temporary>
   </component>
@@ -204,7 +247,11 @@
       <workItem from="1631689717197" duration="1636000" />
       <workItem from="1631710595033" duration="12283000" />
       <workItem from="1631735292478" duration="1464000" />
-      <workItem from="1631875346494" duration="376000" />
+      <workItem from="1631875346494" duration="721000" />
+      <workItem from="1631883329107" duration="6213000" />
+      <workItem from="1631891297029" duration="1000" />
+      <workItem from="1631966508847" duration="4882000" />
+      <workItem from="1632165445806" duration="8464000" />
     </task>
     <task id="LOCAL-00001" summary="created first lab">
       <created>1630956843239</created>
@@ -304,7 +351,56 @@
       <option name="project" value="LOCAL" />
       <updated>1631736695100</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="movement made in the opposite direction">
+      <created>1631875799519</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1631875799519</updated>
+    </task>
+    <task id="LOCAL-00016" summary="rewrite normal test because change logic in functions">
+      <created>1631889070111</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1631889070112</updated>
+    </task>
+    <task id="LOCAL-00017" summary="rewrite test with true situations">
+      <created>1631889634157</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1631889634157</updated>
+    </task>
+    <task id="LOCAL-00018" summary="rewrite last function with specification in task">
+      <created>1631889679637</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1631889679637</updated>
+    </task>
+    <task id="LOCAL-00019" summary="add access infinity value to matrix">
+      <created>1631889721738</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1631889721738</updated>
+    </task>
+    <task id="LOCAL-00020" summary="made new type of queue with nodes">
+      <created>1631971306721</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1631971306721</updated>
+    </task>
+    <task id="LOCAL-00021" summary="new tests for lab3">
+      <created>1631971330521</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1631971330521</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -337,17 +433,13 @@
     <MESSAGE value="something changes in this files, I do not know." />
     <MESSAGE value="correct main" />
     <MESSAGE value="repair function about quadrates as first type was incorrect understood" />
-    <option name="LAST_COMMIT_MESSAGE" value="repair function about quadrates as first type was incorrect understood" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/lab3/Functions.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="movement made in the opposite direction" />
+    <MESSAGE value="rewrite normal test because change logic in functions" />
+    <MESSAGE value="rewrite test with true situations" />
+    <MESSAGE value="rewrite last function with specification in task" />
+    <MESSAGE value="add access infinity value to matrix" />
+    <MESSAGE value="made new type of queue with nodes" />
+    <MESSAGE value="new tests for lab3" />
+    <option name="LAST_COMMIT_MESSAGE" value="new tests for lab3" />
   </component>
 </project>
