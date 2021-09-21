@@ -1,7 +1,9 @@
 package com.lab3;
 
 import lab3.Queue;
-import lab3.animals.classification.cats.*;
+import lab3.animals.classification.Cat;
+import lab3.animals.classification.DomesticCat;
+import lab3.animals.classification.ForestCat;
 import lab3.exceptions.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -107,4 +109,3 @@ public class Main {
         assertThat(throwable.getMessage()).isNotBlank();
     }
 }
-
