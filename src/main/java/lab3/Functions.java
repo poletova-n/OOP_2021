@@ -1,6 +1,6 @@
 package lab3;
 
-import lab3.animals.classification.cats.*;
+import lab3.animals.classification.*;
 import lab3.exceptions.QueueOverFlow;
 import lab3.exceptions.QueueUnderFlow;
 
@@ -62,12 +62,12 @@ public class Functions {
         Queue<? extends Chorda> queue = produce();
 
         System.out.println("Choose number - a parent for lower bound queue.");
-        System.out.println("Any key - End." +
-                "1 - Feline" +
-                "2 - Cat" +
-                "3 - Tailless" +
-                "4 - Amphibian" +
-                "5 - DomesticCat");
+        System.out.println("Any key - End.\n" +
+                "1 - Feline\n" +
+                "2 - Cat\n" +
+                "3 - Tailless\n" +
+                "4 - Amphibian\n" +
+                "5 - DomesticCat\n");
 
         Scanner sc = new Scanner(System.in);
         int n = 0;

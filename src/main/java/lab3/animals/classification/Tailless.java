@@ -1,6 +1,4 @@
-package lab3.animals.classification.cats;
-
-import lab3.animals.classification.cats.Amphibian;
+package lab3.animals.classification;
 
 public class Tailless extends Amphibian {
     public Tailless(String name) {
@@ -10,5 +8,4 @@ public class Tailless extends Amphibian {
     public String toString() {
         return "Tailless " + name;
     }
-
 }

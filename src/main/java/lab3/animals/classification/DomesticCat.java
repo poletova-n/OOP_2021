@@ -1,6 +1,4 @@
-package lab3.animals.classification.cats;
-
-import lab3.animals.classification.cats.Cat;
+package lab3.animals.classification;
 
 public final class DomesticCat extends Cat {
     public DomesticCat(String name) {

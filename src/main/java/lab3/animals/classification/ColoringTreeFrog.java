@@ -1,4 +1,4 @@
-package lab3.animals.classification.cats;
+package lab3.animals.classification;
 
 public final class ColoringTreeFrog extends TreeFrog {
     public ColoringTreeFrog(String name) {

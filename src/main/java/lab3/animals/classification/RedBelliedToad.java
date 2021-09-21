@@ -1,4 +1,4 @@
-package lab3.animals.classification.cats;
+package lab3.animals.classification;
 
 public final class RedBelliedToad extends TreeFrog {
     public RedBelliedToad(String name) {

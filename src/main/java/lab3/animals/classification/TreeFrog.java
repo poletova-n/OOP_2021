@@ -1,6 +1,4 @@
-package lab3.animals.classification.cats;
-
-import lab3.animals.classification.cats.Dartfrog;
+package lab3.animals.classification;
 
 public class TreeFrog extends Dartfrog {
     public TreeFrog(String name) {

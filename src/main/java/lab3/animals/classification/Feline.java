@@ -1,4 +1,4 @@
-package lab3.animals.classification.cats;
+package lab3.animals.classification;
 
 public class Feline extends Predatory {
     public Feline(String name) {

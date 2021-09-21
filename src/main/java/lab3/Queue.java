@@ -3,8 +3,6 @@ package lab3;
 import lab3.exceptions.QueueOverFlow;
 import lab3.exceptions.QueueUnderFlow;
 
-
-
 public class Queue<T> {
 
     class Node {
@@ -90,4 +88,3 @@ public class Queue<T> {
         return "Elements=" + "[" + sb + "]";
     }
 }
-
