@@ -7,9 +7,9 @@ import lab3.exceptions.QueueUnderFlow;
 public class Main {
     public static void main(String[] args) {
        try {
-          Functions.consume(Functions.produce());
+          Functions.menu();
        }
-       catch (QueueUnderFlow | QueueOverFlow e){
+       catch (QueueUnderFlow | QueueOverFlow | ClassCastException e){
            System.out.println(e.getMessage());
        }
     }

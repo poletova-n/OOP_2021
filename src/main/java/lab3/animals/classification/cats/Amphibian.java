@@ -1,7 +1,5 @@
-package lab3.animals.classification.DEPRECATED.frogs;
+package lab3.animals.classification.cats;
 
-
-import lab3.animals.classification.Chorda;
 
 public class Amphibian extends Chorda {
     public Amphibian(String name) {

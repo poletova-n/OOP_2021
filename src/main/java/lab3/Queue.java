@@ -3,31 +3,41 @@ package lab3;
 import lab3.exceptions.QueueOverFlow;
 import lab3.exceptions.QueueUnderFlow;
 
+
+
 public class Queue<T> {
 
     class Node {
         private Node next;
         private final T element;
+
         public Node(T el) {
             element = el;
             next = null;
         }
+
         public T getElement() {
             return element;
         }
     }
 
-    private Integer size = 0;
+    private final Integer size;
     private Integer capacity = 0;
-    private Node    head = null;
+    private Node head = null;
+    private final Class<T> clazz;
 
-    public Queue(int size) {
+    public Queue(int size, Class<T> superclass) {
         this.size = size;
+        this.clazz = (Class<T>) superclass.arrayType().componentType();;
     }
 
     public void add(Object el) throws QueueOverFlow {
+
+        if (!clazz.isInstance(el))
+           throw new ClassCastException("Illegal class casting, " + el + " was not added.");
+
         if (size.equals(capacity))
-            throw new QueueOverFlow( "Element: " + el.toString() + " was not added, because queueu is full");
+            throw new QueueOverFlow("Element: " + el.toString() + " was not added, because queueu is full");
 
         if (head == null)
             head = new Node((T) el);
@@ -50,7 +60,7 @@ public class Queue<T> {
         capacity--;
         return temp.getElement();
     }
-    public T get(){
+    public T get() {
         return head.getElement();
     }
 

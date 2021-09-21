@@ -1,4 +1,4 @@
-package lab3.animals.classification.DEPRECATED.frogs;
+package lab3.animals.classification.cats;
 
 public final class RedBelliedToad extends TreeFrog {
     public RedBelliedToad(String name) {

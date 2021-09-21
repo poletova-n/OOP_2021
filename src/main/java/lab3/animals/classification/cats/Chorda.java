@@ -1,4 +1,4 @@
-package lab3.animals.classification;
+package lab3.animals.classification.cats;
 
 public class Chorda {
     public final String name;
