@@ -11,12 +11,12 @@ import java.util.Scanner;
 
 public class Functions {
 
-    public static int size = 13;
+    public static int SIZE = 13;
 
     public static Queue<? extends Chorda> produce() throws QueueOverFlow {
-        Queue queue = new Queue(size, Chorda.class );
+        Queue queue = new Queue(SIZE, Chorda.class );
 
-        Chorda[] chordCats = new Chorda[size];
+        Chorda[] chordCats = new Chorda[SIZE];
         chordCats[0] = new Chorda("c1");
         chordCats[1] = new Mammals("m1");
         chordCats[2] = new Predatory("p1");
@@ -31,57 +31,76 @@ public class Functions {
         chordCats[11] = new ColoringTreeFrog("clr1");
         chordCats[12] = new RedBelliedToad("rbd1");
 
-        for (int i = 0; i < size; i++)
+        for (int i = 0; i < SIZE; i++)
             queue.add(chordCats[i]);
 
         System.out.println("Upper bound queue:\n" + queue + "\n");
         return queue;
     }
+    public static void consume(Queue<? extends Chorda> queue, Class superClass) throws QueueUnderFlow, QueueOverFlow {
+        Queue queueLow = new Queue(SIZE, Chorda.class);
+        List<Type> types = getListOfSuperClasses(superClass);
 
-    public static void consume(Queue<? extends Chorda> queue, Class<? extends Chorda> superClass) throws QueueUnderFlow, QueueOverFlow {
-        Queue queuelow = new Queue(size, Chorda.class);
+        while (!queue.isEmpty())
+            if(types.contains(queue.get().getClass()))
+                queueLow.add(queue.pop());
+            else
+                queue.pop();
+        System.out.println("Lower bound queue:\n" + queueLow);
+    }
+    public static void menu() throws QueueOverFlow, QueueUnderFlow {
 
+        System.out.println("List of accessible Animals:\n" +
+                "Amphibian\n" +
+                "Cat\n" +
+                "Chorda\n" +
+                "ColoringTreeFrog\n" +
+                "Dartfrog\n" +
+                "DomesticCat\n" +
+                "Feline\n" +
+                "ForestCat\n" +
+                "Mammals\n" +
+                "Predatory\n" +
+                "RedBelliedToad\n" +
+                "Tailless\n" +
+                "TreeFrog\n" +
+                "Enter Animal - a parent for lower bound queue from a list.");
+
+        Scanner sc = new Scanner(System.in);
+        String classString = null;
+        if (sc.hasNext())
+            classString = sc.nextLine();
+
+        Queue<? extends Chorda> queue = produce();
+
+        switch (classString) {
+            case "Amphibian" -> consume(queue, Amphibian.class);
+            case "Cat" -> consume(queue, Cat.class);
+            case "Chorda" -> consume(queue, Chorda.class);
+            case "ColoringTreeFrog" -> consume(queue, ColoringTreeFrog.class);
+            case "Dartfrog" -> consume(queue, Dartfrog.class);
+            case "DomesticCat" -> consume(queue, DomesticCat.class);
+            case "Feline" -> consume(queue, Feline.class);
+            case "Mammals" -> consume(queue, Mammals.class);
+            case "ForestCat" -> consume(queue, ForestCat.class);
+            case "Predatory" -> consume(queue, Predatory.class);
+            case "RedBelliedToad" -> consume(queue, RedBelliedToad.class);
+            case "Tailless" -> consume(queue, Tailless.class);
+            case "TreeFrog" -> consume(queue, TreeFrog.class);
+            default -> System.out.println("End!");
+        }
+    }
+
+    private static List<Type> getListOfSuperClasses(Class superClass) {
         List<Type> types = new LinkedList<>();
-        Class superc = superClass;
 
+        Class superc = superClass;
         types.add(superc);
         while(!superc.equals(Object.class)){
             types.add(superc.getGenericSuperclass());
             superc = (Class) superc.getGenericSuperclass();
         }
-
-        while (!queue.isEmpty())
-            if(types.contains(queue.get().getClass()))
-                queuelow.add(queue.pop());
-            else
-                queue.pop();
-        System.out.println("Lower bound queue:\n" + queuelow);
+        return types;
     }
 
-    public static void menu() throws QueueOverFlow, QueueUnderFlow {
-        Queue<? extends Chorda> queue = produce();
-
-        System.out.println("Choose number - a parent for lower bound queue.");
-        System.out.println("Any key - End.\n" +
-                "1 - Feline\n" +
-                "2 - Cat\n" +
-                "3 - Tailless\n" +
-                "4 - Amphibian\n" +
-                "5 - DomesticCat\n");
-
-        Scanner sc = new Scanner(System.in);
-        int n = 0;
-        if (sc.hasNextInt())
-            n = sc.nextInt();
-
-
-        switch (n) {
-            case 1 -> consume(queue, Feline.class);
-            case 2 -> consume(queue, Cat.class);
-            case 3 -> consume(queue, Tailless.class);
-            case 4 -> consume(queue, Amphibian.class);
-            case 5 -> consume(queue, DomesticCat.class);
-            default -> System.out.println("End!");
-        }
-    }
 }
