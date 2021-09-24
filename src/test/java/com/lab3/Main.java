@@ -2,6 +2,7 @@ package com.lab3;
 
 import lab3.Queue;
 import lab3.animals.classification.Cat;
+import lab3.animals.classification.Chorda;
 import lab3.animals.classification.DomesticCat;
 import lab3.animals.classification.ForestCat;
 import lab3.exceptions.*;
@@ -105,6 +106,20 @@ public class Main {
         queue.add(3);
         Throwable throwable = catchThrowable(()-> queue.add(1.0d));
 
+        assertThat(throwable).isInstanceOf(ClassCastException.class);
+        assertThat(throwable.getMessage()).isNotBlank();
+    }
+
+    @Test
+    @DisplayName("Legal class наследник Test")
+    public void ClassCastLegalTest() throws QueueOverFlow {
+        Queue<Cat> queue = new Queue<>(10, Cat.class);
+        queue.add(new DomesticCat("lol1"));
+        queue.add(new ForestCat("lol2"));
+        queue.add(new Cat("lol3"));
+        Throwable throwable = catchThrowable( ()->{
+                    queue.add(new Chorda("lol4"));
+        });
         assertThat(throwable).isInstanceOf(ClassCastException.class);
         assertThat(throwable.getMessage()).isNotBlank();
     }
