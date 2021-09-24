@@ -26,7 +26,7 @@ public class Queue<T> {
 
     public Queue(int size, Class<T> superclass) {
         this.size = size;
-        this.clazz = (Class<T>) superclass.arrayType().componentType();;
+        this.clazz = (Class<T>) superclass.arrayType().componentType();
     }
 
     public void add(Object el) throws QueueOverFlow {
