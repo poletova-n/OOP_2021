@@ -93,6 +93,7 @@ public class Queue<T> {
     public <Q> Queue<Q> consume(Class<Q> type) {
 
         Queue<Q> lowerQueue = new Queue<Q>((Class<Q>) type,capacity);
+        Queue<? super Q> lowerQueue2 = new Queue<Q>((Class<Q>) type,capacity);
 
         Q typeInstance = null;
 
