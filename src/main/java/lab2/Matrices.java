@@ -34,17 +34,26 @@ public class Matrices {
     public void modifyValues() {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                if (i == size-1 && j == size-1) {
-                    matrix[i][j] = matrix[i][j] / (matrix[i-1][j] + matrix[i][j-1]);
+                try {
+                    double divisor;
+                    if (i == size - 1 && j == size - 1) {
+                        divisor = (matrix[i - 1][j] + matrix[i][j - 1]);
+                    } else if (i == size - 1) {
+                        divisor = (matrix[i - 1][j] + matrix[i][j + 1]);
+                    } else if (j == size - 1) {
+                        divisor = (matrix[i][j - 1] + matrix[i + 1][j]);
+                    } else {
+                        divisor = (matrix[i + 1][j] + matrix[i][j + 1]);
+                    }
+                    if (divisor == 0) {
+                        throw new DivisionByZeroException("Division by zero is encountered, the element is replaced by infinity");
+                    }
+                    matrix[i][j] = matrix[i][j] / divisor;
                 }
-                else if (i == size-1) {
-                    matrix[i][j] = matrix[i][j] / (matrix[i-1][j] + matrix[i][j+1]);
-                }
-                else if (j == size-1) {
-                    matrix[i][j] = matrix[i][j] / (matrix[i][j-1] + matrix[i+1][j]);
-                }
-                else {
-                    matrix[i][j] = matrix[i][j] / (matrix[i+1][j] + matrix[i][j+1]);
+                catch (DivisionByZeroException ex) {
+                    matrix[i][j] = Double.POSITIVE_INFINITY;
+                    System.out.print("DivisionByZeroException!!! ");
+                    System.out.println(ex.getMessage());
                 }
             }
         }

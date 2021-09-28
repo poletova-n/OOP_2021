@@ -4,6 +4,16 @@ public class Fly implements Move {
 
     @Override
     public void move(Point a, Point b) {
-        System.out.println("I believe I can fly");
+        if (a.equals(b)) {
+            System.out.println("- So I'll stand here");
+            return;
+        }
+        System.out.println("- Time to fly...");
+        a.setX(b.getX());
+        a.setY(b.getY());
+    }
+    @Override
+    public String getMoveWay() {
+        return "Fly";
     }
 }
