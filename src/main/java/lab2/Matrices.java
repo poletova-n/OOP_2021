@@ -47,8 +47,11 @@ public class Matrices {
                     }
                     if (divisor == 0) {
                         throw new DivisionByZeroException("Division by zero is encountered, the element is replaced by infinity");
+                    } else if (divisor == Double.POSITIVE_INFINITY) {
+                        matrix[i][j] = 0.0;
+                    } else {
+                        matrix[i][j] = matrix[i][j] / divisor;
                     }
-                    matrix[i][j] = matrix[i][j] / divisor;
                 }
                 catch (DivisionByZeroException ex) {
                     matrix[i][j] = Double.POSITIVE_INFINITY;
