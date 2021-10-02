@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class WorkWithMatrix {
-    private int m,n;
+    private int m,n,i,j;
     private int[][] matrix;
     private Scanner scanner = new Scanner("MatrixOut");
 
@@ -75,7 +75,7 @@ public class WorkWithMatrix {
                 matrix[0][m] /= (matrixA[0][m - 1] + matrixA[1][m]);
                 matrix[m][0] /= (matrixA[m - 1][0] + matrixA[m][1]);
                 matrix[m][m] /= (matrixA[m][m - 1] + matrixA[m - 1][m]);
-                for (int i = 1; i < m - 1; i++) {
+                for (i = 1; i < m - 1; i++) {
                     if ((matrixA[0][i - 1] + matrixA[1][i] + matrixA[0][i + 1]) == 0
                             || (matrixA[m][i - 1] + matrixA[m - 1][i] + matrixA[m][i + 1]) == 0
                             || (matrixA[i - 1][0] + matrixA[i][1] + matrixA[i + 1][0]) == 0
@@ -87,7 +87,7 @@ public class WorkWithMatrix {
                     matrix[i][0] /= (matrixA[i - 1][0] + matrixA[i][1] + matrixA[i + 1][0]);
                     matrix[i][m] /= (matrixA[i - 1][m] + matrixA[i][m - 1] + matrixA[i + 1][m]);
                 }
-                for (int i = 1; i < m - 1; i++) {
+                for (i = 1; i < m - 1; i++) {
                     if ((matrixA[i][i - 1] + matrixA[i - 1][i] + matrixA[i][i + 1] + matrixA[i + 1][i]) == 0) {
                         throw new DivideByZero("You cannot divide an element by zero", 1);
                     }
@@ -97,6 +97,7 @@ public class WorkWithMatrix {
         }catch (DivideByZero e){
             System.out.print(e.getMessage());
             System.out.print(e.getNumber());
+            matrix[i][j] = (int)Double.POSITIVE_INFINITY;
         }catch (ArithmeticException e){
             System.out.print(e.getMessage());
         }

@@ -18,9 +18,9 @@ public class Main {
 
         try(Scanner scanner = new Scanner("C:/Users/User/IdeaProjects/OOP_2021/src/main/java/lab2/MatrixIn.txt")){
             //System.out.print(scanner.nextInt());
-            /*if(!(scanner.hasNext())){
+            if(!(scanner.hasNext())){
                 throw new IOException("File is empty");
-            }*/
+            }
             if(!(scanner.hasNextInt())){
                 throw new IOException("File hasn't int types");
             }
@@ -45,13 +45,18 @@ public class Main {
             System.out.print(e.getNumber());
         }
 
-        try{
+
             file = new File("C:\\Users\\User\\IdeaProjects\\OOP_2021\\src\\main\\java\\lab2\\MatrixOut.txt");
             if(!file.exists()){
-                throw new FilenotFound("Output File not found", 2);
+                try {
+                    throw new FilenotFound("Output File not found", 2);
+                } catch (FilenotFound e) {
+                    e.printStackTrace();
+                }
+                //file.createNewFile();
             }
-
-            FileWriter fileWriter = new FileWriter("C:\\Users\\User\\IdeaProjects\\OOP_2021\\src\\main\\java\\lab2\\MatrixOut.txt");
+        try(FileWriter fileWriter = new FileWriter("C:\\Users\\User\\IdeaProjects\\OOP_2021\\src\\main\\java\\lab2\\MatrixOut.txt"))
+        {
 
             WorkWithMatrix workWithMatrix = new WorkWithMatrix(size);
             WorkWithMatrix workWithMatrix1 = new WorkWithMatrix(workWithMatrix.turn90());
@@ -87,6 +92,7 @@ public class Main {
         catch (FilenotFound e){
             System.out.print(e.getMessage());
             System.out.print(e.getNumber());
+
         }
     }
 }
