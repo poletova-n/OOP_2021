@@ -89,10 +89,5 @@ public class Main {
         catch (IOException | ArithmeticException e){
             System.out.print(e.getMessage());
         }
-        catch (FilenotFound e){
-            System.out.print(e.getMessage());
-            System.out.print(e.getNumber());
-
-        }
     }
 }
