@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        //file existing test (input)
         try {
             File file = new File("C:\\Users\\Enipok\\IdeaProjects\\OOP_2021\\src\\main\\java\\lab2\\in.txt");
             if (!file.exists()) {
@@ -14,8 +15,10 @@ public class Main {
         catch (FileDontExistException ex) {
             System.out.print("FileDontExistException!!! ");
             System.out.println(ex.getMessage());
+            return;
         }
 
+        //main part
         try (Scanner in = new Scanner(new File ("C:\\Users\\Enipok\\IdeaProjects\\OOP_2021\\src\\main\\java\\lab2\\in.txt"))) {
             if (!in.hasNext()) {
                 throw new IOException("File is empty!");
@@ -29,17 +32,13 @@ public class Main {
                 throw new LargeMatrixSizeException("The matrix size is too large (expected size <= 1000000)");
             }
             in.close();
+
             //Creating the matrices used in the work
             Matrices test = new Matrices(size);
             test.fillMatrix();
-            Matrices test90;
-            Matrices test180;
-            Matrices test270;
-
-            //Rotation of matrices
-            test90 = test.getRotatedMatrix();
-            test180 = test90.getRotatedMatrix();
-            test270 = test180.getRotatedMatrix();
+            Matrices test90 = test.getRotatedMatrix();
+            Matrices test180 = test90.getRotatedMatrix();
+            Matrices test270 = test180.getRotatedMatrix();
 
             //Test output of the resulting matrices to the screen
             test.printMatrix();
@@ -54,6 +53,7 @@ public class Main {
 
             StringBuilder fileMatrices = new StringBuilder();
 
+            //file existing test (output)
             File file = new File ("C:\\Users\\Enipok\\IdeaProjects\\OOP_2021\\src\\main\\java\\lab2\\out.txt");
             if (!file.exists()) {
                 throw new FileDontExistException("File " + file + " don't exist!");
@@ -61,6 +61,7 @@ public class Main {
 
             FileWriter out = new FileWriter("C:\\Users\\Enipok\\IdeaProjects\\OOP_2021\\src\\main\\java\\lab2\\out.txt", false);
 
+            //formatting the matrices
             for (int i = 0; i < size; i++) {
                 for (int j = 0; j < size; j++) {
                     if (test90.getMatrix()[i][j] >= 0) {
