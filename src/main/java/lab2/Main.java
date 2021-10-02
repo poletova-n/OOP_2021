@@ -206,12 +206,13 @@ public class Main {
             if (file.length()==0) {
                 throw new EmptyFile("File 1 is empty!");
             }
-            FileInputStream inFile = new FileInputStream(file);
-            byte[] str = new byte[inFile.available()];
+
+           try( FileInputStream inFile = new FileInputStream(file)){
+
+               byte[] str = new byte[inFile.available()];
             inFile.read(str);
             String text = new String(str);
 
-            //String[] numbers = text.split("\\D");
             int i, j;
             int n = Integer.parseInt(text,10);
             if (n>1000000 || n<=0){
@@ -272,10 +273,10 @@ public class Main {
 
                 writer.flush();
 
-                if (file2.length()==0) {
+                if (file2.length() == 0) {
                     throw new EmptyFile("File2 is empty!");
                 }
-
+            }
             }
         }catch (IOException | WrongSize | FileNotExist | EmptyFile ex  ) {
 
