@@ -30,7 +30,7 @@ public class Main {
                 try {
                     Utils.pause(1000);
                     String msg = queue.take();
-                    System.out.println("Reciver " + Thread.currentThread() + " msg: " + msg);
+                    System.out.println("Receiver " + Thread.currentThread() + " msg: " + msg);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

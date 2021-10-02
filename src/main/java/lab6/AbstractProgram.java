@@ -16,6 +16,7 @@ public class AbstractProgram implements Runnable {
     private ReentrantLock lock = new ReentrantLock();
     private int frequency = 1000;
 
+
     AbstractProgram() {
     }
 
@@ -45,23 +46,32 @@ public class AbstractProgram implements Runnable {
 
     @Override
     public void run() {
+
+
+
         Thread t = new Thread(() -> {
             while (!Thread.interrupted()) {
-                Utils.pause(frequency);
+                try {
+                    Thread.sleep(frequency);
+                } catch (InterruptedException e) {
+                    break;
+                }
                 int rand = ThreadLocalRandom.current().nextInt(State.values().length);
                 setCurrentState(State.class.getEnumConstants()[rand]);
             }
+
         }
         );
 
         t.setDaemon(true);
         t.start();
 
+
         while (!Thread.interrupted()) {
             try {
                 synchronized (this) {
                     if (getCurrentState() == State.STOPPING
-                            || getCurrentState() == AbstractProgram.State.STOPPING) {
+                            || getCurrentState() == State.UNKNOWN) {
                         wait();
                     }
                     if (getCurrentState() == State.RUNNING) {
@@ -70,11 +80,14 @@ public class AbstractProgram implements Runnable {
                 }
             } catch (InterruptedException e) {
                 System.out.println("Abstract program has been stopped");
+                t.interrupt();
                 e.printStackTrace();
             }
         }
 
-        t.interrupt();
+
+
+
 
     }
 }

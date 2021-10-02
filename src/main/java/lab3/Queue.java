@@ -95,6 +95,7 @@ public class Queue<T> {
         Queue<Q> lowerQueue = new Queue<Q>((Class<Q>) type,capacity);
         Queue<? super Q> lowerQueue2 = new Queue<Q>((Class<Q>) type,capacity);
 
+
         Q typeInstance = null;
 
         try {
@@ -112,6 +113,15 @@ public class Queue<T> {
                 System.out.println("Class: "+obj.getClass().getName() + " is consumed" );
             }
         }
+
+        while (size > 0) {
+            Q obj = (Q) new Vombatiformes();
+            if (!obj.getClass().isInstance(typeInstance)) {
+                lowerQueue2.add( obj);
+                System.out.println("Class: "+obj.getClass().getName() + " is consumed" );
+            }
+        }
+
 
 
         return lowerQueue;

@@ -2,21 +2,21 @@ package lab6;
 
 public class Supervisor implements Runnable{
 
-    AbstractProgram as;
+    AbstractProgram ap;
     Thread t;
 
     Supervisor(AbstractProgram task) {
-        as = task;
+        ap = task;
     }
 
     @Override
     public void run() {
-        t = new Thread(as);
+        t = new Thread(ap);
         t.start();
 
-        while (as.getCurrentState() != AbstractProgram.State.FATAL_ERROR) {
-            if (as.getCurrentState() == AbstractProgram.State.UNKNOWN
-                || as.getCurrentState() == AbstractProgram.State.STOPPING) {
+        while (ap.getCurrentState() != AbstractProgram.State.FATAL_ERROR) {
+            if (ap.getCurrentState() == AbstractProgram.State.UNKNOWN
+                || ap.getCurrentState() == AbstractProgram.State.STOPPING) {
                 start();
             }
         }
@@ -27,11 +27,11 @@ public class Supervisor implements Runnable{
 
 
     private void start() {
-        as.setCurrentState(AbstractProgram.State.RUNNING);
+        ap.setCurrentState(AbstractProgram.State.RUNNING);
     }
 
     private void stop() {
-        as.setCurrentState(AbstractProgram.State.STOPPING);
+        ap.setCurrentState(AbstractProgram.State.STOPPING);
     }
 
 }
