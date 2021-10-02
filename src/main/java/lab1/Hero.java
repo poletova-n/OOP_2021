@@ -1,13 +1,22 @@
 package lab1;
 
 public class Hero {
-    Move m;
+    Move act;
+    Point curPos;
 
-    Hero() {
-        m = new Fly();
+    public Hero(int x, int y)
+    {
+        curPos = new Point(x, y);
     }
 
-    Hero(Move move) {
-        m = move;
+    public void setAct(Move type)
+    {
+        act = type;
+    }
+
+    public void moveOn(Point newPoint)
+    {
+        act.move(newPoint);
+        curPos = newPoint;
     }
 }
