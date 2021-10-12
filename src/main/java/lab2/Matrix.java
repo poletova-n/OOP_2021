@@ -23,13 +23,19 @@ public class Matrix {
             if (input.length() == 0){
                 throw new EmptyFile("This file is empty!");
             }
-            Scanner inputNumber = new Scanner(new File(path));
-            size = inputNumber.nextInt();
-            if (size > 1000000 | size <= 0){
-                throw new InvalidMatrixSize("Incorrect size!");
+            try(Scanner inputNumber = new Scanner(new File(path)))
+            {
+                size = inputNumber.nextInt();
+                if (size > 1000000 | size <= 0) {
+                    throw new InvalidMatrixSize("Incorrect size!");
+                }
+            }
+            catch (InvalidMatrixSize e)
+            {
+                e.printStackTrace();
             }
         }
-        catch (FileNotFound | InvalidMatrixSize | EmptyFile e)
+        catch (FileNotFound | EmptyFile e)
         {
             e.printStackTrace();
         }
@@ -99,15 +105,14 @@ public class Matrix {
 
     public void printMatrix(String path)
     {
-        try
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter(path, true)))
         {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(path, true));
             for (int i = 0; i < size; i++){
                 for (int j = 0; j < size; j++){
                     writer.append(String.valueOf(matrix[i][j]));
                     writer.append(" ");
                 }
-                writer.append('\n');
+                writer.append("\n");
             }
             writer.append("\n");
             writer.flush();
