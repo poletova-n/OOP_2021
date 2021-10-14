@@ -7,14 +7,9 @@ public class Main {
 
 
     public static void main(String[] args) {
-       try{
-
            Matrix matrix = new Matrix(INPUT_FILE);
 
            matrix.printMatrixToFile(OUTPUT_FILE);
-       }catch (OutOfMemoryError error){
-           error.printStackTrace();
-       }
     }
 
 
