@@ -1,19 +1,19 @@
 package lab1;
 
-public class Fly implements Move {
+public class Stealth implements Move {
 
     @Override
     public void move(Point a, Point b) {
         if (a.equals(b)) {
-            System.out.println("- So I'll stand here");
+            System.out.println("- Blend in with my surroundings...");
             return;
         }
-        System.out.println("- Time to fly...");
+        System.out.println("- I'm starting to sneak around");
         a.setX(b.getX());
         a.setY(b.getY());
     }
     @Override
     public String getMoveWay() {
-        return "Fly";
+        return "Stealth";
     }
 }
