@@ -4,6 +4,6 @@ public class Run implements Move {
 
     @Override
     public void move(Point newPoint) {
-        System.out.println("Hero runs to point (" + newPoint.x + ", " + newPoint.y + ")" );
+        System.out.println("Hero runs to point (" + newPoint.getX() + ", " + newPoint.getY() + ")" );
     }
 }

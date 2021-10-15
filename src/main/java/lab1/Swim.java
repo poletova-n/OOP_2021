@@ -4,6 +4,6 @@ public class Swim implements Move {
 
     @Override
     public void move(Point newPoint) {
-        System.out.println("Hero swims to point (" + newPoint.x + ", " + newPoint.y + ")" );
+        System.out.println("Hero swims to point (" + newPoint.getX() + ", " + newPoint.getY() + ")" );
     }
 }
