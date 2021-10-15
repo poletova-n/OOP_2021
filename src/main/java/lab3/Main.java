@@ -8,7 +8,7 @@ public class Main {
         String prefix = "lab3.Animal.";
         try {
             System.out.println("\nTask #1:");
-            GenericLinkedQueue<?> task1 = task.produce(Class.forName(prefix + "Chordate"));
+            GenericLinkedQueue<?> task1 = task.produce(Class.forName(prefix + "Primates"));
 
             System.out.println("\nTask #2:");
             GenericLinkedQueue<?> task2 = task1.consume();

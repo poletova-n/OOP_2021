@@ -102,12 +102,19 @@ public class GenericLinkedQueue<T> {
             }
             it = it.next;
         }
+        if (newQueue.isEmpty()) {
+            System.out.print("There were no " + type.getSimpleName() + " heirs in the queue");
+        }
         System.out.println();
         return newQueue;
     }
 
     <E> GenericLinkedQueue<Class<? super E>> consume () {
 
+        if (this.isEmpty()) {
+            System.out.println("The queue is empty");
+            return null;
+        }
         GenericLinkedQueue<Class<? super E>> newQueue = new GenericLinkedQueue<>();
 
         int counter = this.currSize;
