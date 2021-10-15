@@ -1,7 +1,8 @@
 package lab3;
-import lab3.Animal.*;
 
+import lab3.Animal.*;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.Math;
 
 @SuppressWarnings("unchecked")
 public class GenericLinkedQueue<T> {
@@ -19,7 +20,6 @@ public class GenericLinkedQueue<T> {
     private int currSize = 0;
     private Node<T> front;
     private Node<T> rear;
-    private final Class<?>[] Animals = new Class[] {NapoleonVelvetWeaver.class, FieryVelvetWeaver.class, HermitThrush.class, BicknellsThrush.class, GreyMeekLemur.class, GoldenLemur.class, Baboon.class, Anubis.class};
 
     GenericLinkedQueue () {
         this.front = null;
@@ -56,12 +56,32 @@ public class GenericLinkedQueue<T> {
         }
     }
 
+    public boolean isEmpty() {
+        return (this.front == null);
+    }
+
+    public void randomFill (int count) {
+        final Class<?>[] Animals = new Class[] {NapoleonVelvetWeaver.class, FieryVelvetWeaver.class, HermitThrush.class, BicknellsThrush.class, GreyMeekLemur.class, GoldenLemur.class, Baboon.class, Anubis.class};
+        try {
+            for (int i = 0; i < count; i++) {
+                this.add((T)Animals[(int) (Math.random() * 8)].getConstructor().newInstance());
+            }
+        }
+        catch (NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
     <E> GenericLinkedQueue<? extends E> produce (Class<? extends E> type) {
 
         GenericLinkedQueue<E> newQueue = new GenericLinkedQueue<>();
+        if (this.isEmpty()) {
+            this.randomFill(5);
+        }
 
-        for (Class<?> i: Animals) {
-            Class<?> temp = i;
+        Node<?> it = this.front;
+        while (it != null) {
+            Class<?> temp = it.value.getClass();
             boolean cond = true;
             while (!temp.getSimpleName().equals(type.getSimpleName())) {
                 if (temp.getName().equals("java.lang.Object")) {
@@ -70,45 +90,38 @@ public class GenericLinkedQueue<T> {
                 }
                 temp = temp.getSuperclass();
             }
+            temp = it.value.getClass();
             if (cond) {
                 try {
-                    newQueue.add((E) i.getConstructor().newInstance());
-                    System.out.print(i.getSimpleName() + " ");
+                    newQueue.add((E) temp.getConstructor().newInstance());
+                    System.out.print(temp.getSimpleName() + " ");
                 }
                 catch (NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException ex) {
                     System.out.println(ex.getMessage());
                 }
             }
+            it = it.next;
         }
         System.out.println();
         return newQueue;
     }
 
     <E> GenericLinkedQueue<Class<? super E>> consume () {
+
         GenericLinkedQueue<Class<? super E>> newQueue = new GenericLinkedQueue<>();
+
         int counter = this.currSize;
         int numerator = 1;
-        Class<?> parent = null;
         for (int i = counter; i > 0; i--) {
             Class<?> element = this.get().getClass();
             Class<?> iParent = element.getSuperclass();
-            if (parent != null && iParent.getSimpleName().equals(parent.getSimpleName())) {
-                System.out.print(", " + element.getSimpleName());
-                if (i == 1) {
-                    System.out.print(")");
-                }
-                continue;
-            } else if (i != counter) {
-                System.out.println(")");
-            }
-            parent = iParent;
             newQueue.add((Class<E>)iParent);
-            System.out.print(numerator + ") " + iParent.getSimpleName()); //": (" + element.getSimpleName());
+            System.out.print(numerator + ") " + iParent.getSimpleName());
             while (!iParent.getSimpleName().equals("Chordate")) {
                 iParent = iParent.getSuperclass();
                 System.out.print(" <- " + iParent.getSimpleName());
             }
-            System.out.print(": (" + element.getSimpleName());
+            System.out.println(": (" + element.getSimpleName() + ")");
             numerator++;
         }
         System.out.println();
