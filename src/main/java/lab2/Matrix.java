@@ -105,18 +105,6 @@ public class Matrix {
         turn90();
         Division();
     }
-    public void action180(){
-        turn90();
-        turn90();
-        Division();
-    }
-    public void action270(){
-        turn90();
-        turn90();
-        turn90();
-        Division();
-    }
-
 
     public void printMatrix(String path){
         try {

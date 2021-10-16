@@ -28,7 +28,6 @@ public class Main {
                     writer.append('\n');
                 }
 
-                //matrix.action90();
                 matrix.turn90();
 
                 writer.append('\n');
@@ -70,16 +69,5 @@ public class Main {
 
             System.out.println(ex.getMessage());
         }
-
-        //matrix.printMatrix("out.txt");
-
-        /*matrix.action90();
-        matrix.print("out.txt");
-
-        matrix.action90();
-        matrix.print("out.txt");
-
-        matrix.action90();
-        matrix.print("out.txt");*/
     }
 }
