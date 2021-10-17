@@ -1,9 +1,5 @@
 package lab3.AnimalsHierarchy;
 
-public class Osmeridae extends Salmon{
-
-    public Osmeridae(String name){
-        super(name);
-    }
+public abstract class Osmeridae extends Salmon{
 
 }

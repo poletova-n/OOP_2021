@@ -10,29 +10,24 @@ import java.util.Scanner;
 
 public class Utilities {
 
-    public static int SIZE = 13;
+    public static int SIZE = 7;
 
     public static Queue<? extends Animal> produce() throws QueueOverflow {
 
         Queue<? extends Animal> queue = new Queue<>(SIZE, Animal.class );
 
         Animal[] animals = new Animal[SIZE];
-        animals[0]  = new Smelt("smelt");
-        animals[1]  = new Animal("animal");
-        animals[2]  = new Mammal("mammal");
-        animals[3]  = new Herbivore("herbivore");
-        animals[4]  = new Artiodactyla("artiodactyla");
-        animals[5]  = new Striped("striped");
-        animals[6]  = new Zebra("zebra");
-        animals[7]  = new Giraffe("giraffe");
-        animals[8]  = new Fish("fish");
-        animals[9]  = new Salmon("salmon");
-        animals[10] = new Osmeridae("osmeridae");
-        animals[11] = new Scaly("scaly");
-        animals[12] = new SalmonOfWisdom("salmonofwisdom");
+        animals[0]  = new Smelt();
+        animals[1]  = new Zebra();
+        animals[2]  = new Giraffe();
+        animals[3]  = new SalmonOfWisdom();
+        animals[4]  = new GoldenKoi();
+        animals[5]  = new Antilopa();
+        animals[6]  = new Lion();
 
         for (int i = 0; i < SIZE; i++){
-            queue.add(animals[(int) (Math.random() * SIZE)]);
+//            queue.add(animals[(int) (Math.random() * SIZE)]);
+            queue.add(animals[i]);
         }
 
         return queue;
@@ -40,18 +35,27 @@ public class Utilities {
 
     public static void consume(Queue<? extends Animal> queue, Class<?> superClass) throws QueueUnderflow, QueueOverflow {
 
-        Queue<? extends Animal> queueLow = new Queue<>(SIZE, Animal.class);
+        Queue<? super Animal> queueLow = new Queue<>(SIZE, Animal.class);
         List<Type> types = getListOfSuperClasses(superClass);
 
-        while (!queue.isEmpty())
-            if(types.contains(queue.get().getClass()))
-                queueLow.add(queue.pop());
-            else
-                queue.pop();
-
-        System.out.println("Lower bound queue:\n" + queueLow);
+        System.out.println(types);
 
     }
+
+//    public static void consume(Queue<? extends Animal> queue, Class<?> superClass) throws QueueUnderflow, QueueOverflow {
+//
+//        Queue<? super Animal> queueLow = new Queue<>(SIZE, Animal.class);
+//        List<Type> types = getListOfSuperClasses(superClass);
+//        System.out.println(types);
+//        while (!queue.isEmpty())
+//            if(types.contains(queue.get().getClass()))
+//                queueLow.add(queue.pop());
+//            else
+//                queue.pop();
+//
+//        System.out.println("Lower bound queue:\n" + queueLow);
+//
+//    }
 
     public static void selectClass() throws QueueOverflow, QueueUnderflow {
 
@@ -67,17 +71,11 @@ public class Utilities {
         }
 
         switch (className) {
-            case "Animal"         -> consume(queue, Animal.class);
-            case "Mammal"         -> consume(queue, Mammal.class);
-            case "Herbivore"      -> consume(queue, Herbivore.class);
-            case "Artiodactyla"   -> consume(queue, Artiodactyla.class);
-            case "Striped"        -> consume(queue, Striped.class);
+            case "GoldenKoi"         -> consume(queue, GoldenKoi.class);
+            case "Lion"         -> consume(queue, Lion.class);
+            case "Antilopa"      -> consume(queue, Antilopa.class);
             case "Zebra"          -> consume(queue, Zebra.class);
             case "Giraffe"        -> consume(queue, Giraffe.class);
-            case "Fish"           -> consume(queue, Fish.class);
-            case "Salmon"         -> consume(queue, Salmon.class);
-            case "Osmeridae"      -> consume(queue, Osmeridae.class);
-            case "Scaly"          -> consume(queue, Scaly.class);
             case "SalmonOfWisdom" -> consume(queue, SalmonOfWisdom.class);
             case "Smelt"          -> consume(queue, Smelt.class);
             default               -> System.out.println("Unknown class name!");
@@ -92,9 +90,12 @@ public class Utilities {
         types.add(superc);
 
         while(!superc.equals(Object.class)){
+
             types.add(superc.getGenericSuperclass());
             superc = (Class<?>) superc.getGenericSuperclass();
         }
+
+        types.remove(types.size()-1);
 
         return types;
     }

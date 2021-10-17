@@ -1,9 +1,5 @@
 package lab3.AnimalsHierarchy;
 
-public class Mammal extends Animal{
-
-    public Mammal(String name){
-        super(name);
-    }
+public abstract class Mammal extends Animal {
 
 }

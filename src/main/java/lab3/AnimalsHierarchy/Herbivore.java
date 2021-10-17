@@ -1,9 +1,5 @@
 package lab3.AnimalsHierarchy;
 
-public class Herbivore extends Mammal{
-
-    public Herbivore(String name){
-        super(name);
-    }
+public abstract class Herbivore extends Mammal{
 
 }
