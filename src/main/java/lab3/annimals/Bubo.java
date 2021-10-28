@@ -1,8 +1,4 @@
 package lab3.annimals;
 
-public class Bubo extends Striginae{
-    public Bubo()
-    {
-        type = "Bubo";
-    }
+public abstract class Bubo extends Striginae{
 }

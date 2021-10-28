@@ -2,219 +2,162 @@ package lab3;
 
 import lab3.annimals.*;
 import lab3.exceptions.*;
+import java.lang.reflect.Type;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
 
 public class Queue<T> {
 
-    private Node<T> head, tail;
-    private final int size;
-    private int capacity;
+    class Node {
+        private Node next;
+        private final T element;
 
-    public Queue(int size)
-    {
-        head = null;
-        tail = null;
+        public Node(T el) {
+            element = el;
+            next = null;
+        }
+
+        public T getElement() {
+            return element;
+        }
+    }
+
+    private final Integer size;
+    private Integer capacity = 0;
+    private Node head = null;
+    private final Class<T> clazz;
+
+    public Queue(int size, Class<T> superclass) {
         this.size = size;
-        capacity = 0;
+        this.clazz = (Class<T>) superclass.arrayType().componentType();
     }
 
-    public void print()
-    {
-        if (isEmpty())
-        {
-            System.out.println("Queue is empty!");
+    public void add(Object el) throws QueueOverflow {
+
+        if (!clazz.isInstance(el))
+            throw new ClassCastException("Illegal class casting, " + el + " was not added.");
+
+        if (size.equals(capacity))
+            throw new QueueOverflow("Element: " + el.toString() + " was not added, because queue is full");
+
+        if (head == null)
+            head = new Node((T) el);
+
+        else {
+            Node currentNode = head;
+            while (currentNode.next != null)
+                currentNode = currentNode.next;
+            currentNode.next = new Node((T) el);
         }
+        capacity++;
+    }
+    public T pop() throws QueueUnderflow {
+        if (head == null)
+            throw new QueueUnderflow("There are no items in the queue.");
 
-        Node<T> tempHead = head;
+        Node temp = head;
+        head = head.next;
 
-        while (tempHead != null)
-        {
-            System.out.print(tempHead.toString() + " ");
-            tempHead = tempHead.getNext();
-        }
-
-        System.out.println();
+        capacity--;
+        return temp.getElement();
+    }
+    public T get() {
+        return head.getElement();
     }
 
-    public void add(Object element) throws QueueOverflow
-    {
-        try
-        {
-            if (capacity == size)
-            {
-                throw new QueueOverflow("Queue is full!");
-            }
-
-            Node<T> tempTail = tail;
-
-            tail = new Node<>();
-            tail.setData(element);
-            tail.setNext(null);
-
-            if (isEmpty())
-            {
-                head = tail;
-            }
-            else
-            {
-                tempTail.setNext(tail);
-            }
-
-            capacity++;
-        }
-
-        catch (QueueOverflow ex)
-        {
-            ex.printStackTrace();
-        }
+    public boolean isFull() {
+        return size.equals(capacity);
+    }
+    public boolean isEmpty() {
+        return capacity == 0;
+    }
+    public Integer getSize() {
+        return size;
     }
 
-    public T get() throws QueueUnderflow
-    {
-        try
-        {
-            if (isEmpty())
-            {
-                throw new QueueUnderflow("Queue is empty!");
-            }
-            else
-            {
-                T tempData = head.getData();
-                head = head.getNext();
-                capacity--;
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        Node currentNode = head;
+        if (head == null)
+            return "Elements=" + "[]";
 
-                if (isEmpty())
-                {
-                    tail.setNext(null);
-                }
+        while (currentNode.next != null) {
+            sb.append(currentNode.getElement().getClass());
+            sb.append("\n");
+            currentNode = currentNode.next;
+        }
+        sb.append(currentNode.getElement().getClass());
 
-                return tempData;
-            }
+        return "Elements=[\n" + sb + "\n]";
+    }
+
+    public static int SIZE = 4;
+
+    public static Queue<? extends Chordal> produce() throws QueueOverflow {
+
+        Queue<? extends Chordal> queue = new Queue<>(SIZE, Chordal.class );
+
+        Chordal[] animals = new Chordal[SIZE];
+        animals[0]  = new BengalOwl();
+        animals[1]  = new MagellansOwl();
+        animals[2]  = new SilverGibbon();
+        animals[3]  = new TheWhiteArmedGibbon();
+        for (int i = 0; i < SIZE; i++){
+            queue.add(animals[i]);
         }
-        catch (QueueUnderflow ex)
-        {
-            ex.printStackTrace();
-            return null;
-        }
+
+        return queue;
+    }
+
+    public static void consume(Queue<? extends Chordal> queue, Class<?> superClass) throws QueueUnderflow, QueueOverflow {
+
+        Queue<? super Chordal> queueLow = new Queue<>(SIZE, Chordal.class);
+        List<Type> types = getListOfSuperClasses(superClass);
+
+        System.out.println(types);
 
     }
 
-    public boolean isEmpty()
-    {
-        return (capacity == 0);
+    private static List<Type> getListOfSuperClasses(Class<?> superClass) {
+
+        List<Type> types = new LinkedList<>();
+
+        Class<?> superc = superClass;
+        types.add(superc);
+
+        while(!superc.equals(Object.class)){
+
+            types.add(superc.getGenericSuperclass());
+            superc = (Class<?>) superc.getGenericSuperclass();
+        }
+
+        types.remove(types.size()-1);
+
+        return types;
     }
 
-    public Queue<? extends Chordal> produce() throws QueueOverflow, QueueUnderflow
-    {
-        if (size != capacity)
-        {
-            Queue<? extends Chordal> tempQueue = new Queue<>(this.size);
-            Queue<? extends Chordal> hierarchy = getHierarchy();
+    public static void selectClass() throws QueueOverflow, QueueUnderflow {
 
-            if (capacity > 0)
-            {
-                for (int i = capacity; i > 0; i--)
-                {
-                    T tempData = head.getData();
-                    head = head.getNext();
+        Queue<? extends Chordal> queue = produce();
+        System.out.println("Upper bound queue:\n" + queue + "\n");
+        System.out.println("Enter Animal's class name - a parent class for lower bound queue from a list.");
 
-                    tempQueue.add(tempData);
-                }
-            }
+        Scanner sc = new Scanner(System.in);
+        String className = null;
 
-            while ((tempQueue.capacity != tempQueue.size) & (!hierarchy.isEmpty()))
-            {
-                tempQueue.add(hierarchy.get());
-            }
-
-            return tempQueue;
-        }
-        else
-        {
-            return (Queue<? extends Chordal>) this;
-        }
-    }
-
-    public boolean contains(Class cls)
-    {
-        Node<T> tempHead = head;
-
-        while (tempHead != null)
-        {
-            if(tempHead.getData().equals(cls))
-            {
-                return true;
-            }
-
-            tempHead = tempHead.getNext();
+        if (sc.hasNext()) {
+            className = sc.nextLine();
         }
 
-        return false;
-    }
-
-    public void consume(Class cls) throws QueueUnderflow, QueueOverflow
-    {
-        try
-        {
-            if (capacity > 0)
-            {
-                Queue<? extends T> queueHierarcy = new Queue<>(13);
-
-                while (!cls.equals(Chordal.class))
-                {
-                    queueHierarcy.add(cls.getGenericSuperclass());
-                    cls = (Class) cls.getGenericSuperclass();
-                }
-
-                Node<T> tempHead = head;
-                Queue<? extends T> tempQueue = new Queue<>(size);
-
-                while (tempHead != null)
-                {
-                    if(queueHierarcy.contains(tempHead.getData().getClass()))
-                    {
-                        tempQueue.add(this.get());;
-                    }
-                    else
-                    {
-                        this.get();
-                    }
-
-                    tempHead = tempHead.getNext();
-                }
-
-                while (!tempQueue.isEmpty())
-                {
-                    this.add(tempQueue.get());
-                }
-            }
-            else
-            {
-                throw new QueueUnderflow("Queue is empty!");
-            }
-        }
-        catch (QueueUnderflow ex)
-        {
-            ex.printStackTrace();
+        switch (className) {
+            case "BengalOwl"                    -> consume(queue, BengalOwl.class);
+            case "MagellansOwl"                 -> consume(queue, MagellansOwl.class);
+            case "SilverGibbon"                 -> consume(queue, SilverGibbon.class);
+            case "TheWhiteArmedGibbon"          -> consume(queue, TheWhiteArmedGibbon.class);
+            default               -> System.out.println("Unknown class name!");
         }
     }
 
-    private Queue<? extends Chordal> getHierarchy() throws QueueOverflow
-    {
-        Queue<? extends Chordal> tempQueue = new Queue<>(13);
-
-        tempQueue.add(new Chordal());
-        tempQueue.add(new BengalOwl());
-        tempQueue.add(new Birds());
-        tempQueue.add(new Bubo());
-        tempQueue.add(new Gibbon());
-        tempQueue.add(new Mammals());
-        tempQueue.add(new GreatApes());
-        tempQueue.add(new MagellansOwl());
-        tempQueue.add(new Owls());
-        tempQueue.add(new Primates());
-        tempQueue.add(new SilverGibbon());
-        tempQueue.add(new Striginae());
-        tempQueue.add(new TheWhiteArmedGibbon());
-        return tempQueue;
-    }
 }

@@ -1,6 +1,6 @@
 package lab3.annimals;
 
-public class Chordal {
+public abstract class Chordal {
 
     protected String type;
 
