@@ -1,20 +1,24 @@
-package lab3;
+import animal.hierarchy.*;
 
-import lab3.Animal.*;
+import java.lang.reflect.InvocationTargetException;
+
+/**
+ The full class hierarchy is located in the same directory as the lab
+ Animal Hierarchy.uml
+ */
 
 public class Main {
     public static void main(String[] args) {
-        GenericLinkedQueue<Chordate> task = new GenericLinkedQueue<>();
-        String prefix = "lab3.Animal.";
         try {
-            System.out.println("\nTask #1:");
-            GenericLinkedQueue<?> task1 = task.produce(Class.forName(prefix + "Chordate"));
-
-            System.out.println("\nTask #2:");
-            GenericLinkedQueue<?> task2 = task1.consume();
-        }
-        catch (Exception ex) {
-            System.out.println(ex.getMessage());
+            Functions functions = new Functions();
+            Queue<Animal> animalQueue = Functions.produce(Animal.class);
+            System.out.println("\nFull Animal hierarchy: " + animalQueue);
+            Queue<Animal> upperBoundedQueue = Functions.produce(Tailless.class);
+            System.out.println("Queue with Tailless as upper bound: " + upperBoundedQueue);
+            Queue<Animal> resultingBoundedQueue = Functions.consume(upperBoundedQueue, Frog.class);
+            System.out.println("Queue with Tailless as upper bound and Frog as lower bound: " + resultingBoundedQueue);
+        } catch (NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
+            e.printStackTrace();
         }
     }
 }
