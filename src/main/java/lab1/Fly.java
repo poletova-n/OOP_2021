@@ -1,19 +1,14 @@
-package lab1;
+package Lab1;
 
-public class Fly implements Move {
+public class Fly implements MoveStrategy {
 
     @Override
     public void move(Point a, Point b) {
-        if (a.equals(b)) {
-            System.out.println("- So I'll stand here");
-            return;
+        if (Point.isEqual(a, b)) {
+            System.out.println("I believe I can fly");
+        } else {
+            System.out.println("Hero is flying from point ( " + a.getX()
+                    + ", " + a.getY() + " ) to point ( " + b.getX() + ", " + b.getY() + " ).");
         }
-        System.out.println("- Time to fly...");
-        a.setX(b.getX());
-        a.setY(b.getY());
-    }
-    @Override
-    public String getMoveWay() {
-        return "Fly";
     }
 }
