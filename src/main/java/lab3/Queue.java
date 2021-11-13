@@ -76,28 +76,12 @@ public class Queue<T> {
         return size;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        Node currentNode = head;
-        if (head == null)
-            return "Elements=" + "[]";
-
-        while (currentNode.next != null) {
-            sb.append(currentNode.getElement().getClass());
-            sb.append("\n");
-            currentNode = currentNode.next;
-        }
-        sb.append(currentNode.getElement().getClass());
-
-        return "Elements=[\n" + sb + "\n]";
-    }
-
     public static int SIZE = 4;
 
     public static Queue<? extends Chordal> produce() throws QueueOverflow {
 
         Queue<? extends Chordal> queue = new Queue<>(SIZE, Chordal.class );
+
 
         Chordal[] animals = new Chordal[SIZE];
         animals[0]  = new BengalOwl();
@@ -158,6 +142,23 @@ public class Queue<T> {
             case "TheWhiteArmedGibbon"          -> consume(queue, TheWhiteArmedGibbon.class);
             default               -> System.out.println("Unknown class name!");
         }
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        Node currentNode = head;
+        if (head == null)
+            return "Elements=" + "[]";
+
+        while (currentNode.next != null) {
+            sb.append(currentNode.getElement().getClass());
+            sb.append("\n");
+            currentNode = currentNode.next;
+        }
+        sb.append(currentNode.getElement().getClass());
+
+        return "Elements=[\n" + sb + "\n]";
     }
 
 }
