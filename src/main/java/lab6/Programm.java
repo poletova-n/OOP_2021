@@ -23,11 +23,8 @@ public class Programm implements Runnable{
     public void run() {
         Thread t = new Thread(()->{
             while (!Thread.interrupted()){
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                //Thread.sleep(1000);
+                Utils.pause(1000);
                 int rand = ThreadLocalRandom.current().nextInt(Status.values().length);
                 setCurrentstatus(Status.class.getEnumConstants()[rand]);
             }
