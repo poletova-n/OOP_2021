@@ -15,11 +15,19 @@ public class Supervisor implements Runnable {
         synchronized (this) {
             while (thread.getCond() != MyThread.Conditions.FATAL_ERROR) {
                 if (thread.getCond() == MyThread.Conditions.UNKNOWN || thread.getCond() == MyThread.Conditions.STOPPING){
-                    thread.setCond(MyThread.Conditions.RUNNING);
+                    start();
                 }
             }
         }
+        stop(t);
+    }
+
+    private void start () {
+        thread.setCond(MyThread.Conditions.RUNNING);
+    }
+    private void stop (Thread t) {
+        thread.setCond(MyThread.Conditions.STOPPING);
         t.interrupt();
-        System.out.println("Break because FATAL_ERROR");
+        System.out.println("Thread stopped by Supervisor");
     }
 }

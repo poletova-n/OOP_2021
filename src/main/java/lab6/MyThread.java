@@ -11,7 +11,7 @@ public class MyThread implements Runnable {
         FATAL_ERROR
     }
 
-    Conditions cond = Conditions.RUNNING;
+    private Conditions cond = Conditions.RUNNING;
 
     public Conditions getCond() {
         return cond;
@@ -48,6 +48,7 @@ public class MyThread implements Runnable {
 
         deamon.setDaemon(true);
         deamon.start();
+
         while (!Thread.interrupted()){
             synchronized (this) {
                 if (getCond() == Conditions.RUNNING) {
