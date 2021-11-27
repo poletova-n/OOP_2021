@@ -11,7 +11,6 @@ public class Main {
 
             System.out.println("\nTask #2:");
             Queue<?> task2 = task1.consume();
-            System.out.println("blablabla");
         }
         catch (Exception ex) {
             System.out.println(ex.getMessage());

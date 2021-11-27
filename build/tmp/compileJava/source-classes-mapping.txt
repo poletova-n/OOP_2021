@@ -2,8 +2,6 @@ lab3/animals/Aves.java
  lab3.animals.Aves
 lab3/animals/Strix.java
  lab3.animals.Strix
-lab5/Main.java
- lab5.Main
 lab1/Walk.java
  lab1.Walk
 lab3/animals/Tasmaniensis.java
@@ -12,6 +10,8 @@ lab3/animals/Vombatidae.java
  lab3.animals.Vombatidae
 lab7/Main.java
  lab7.Main
+lab3/Main.java
+ lab3.Main
 lab3/animals/Strigidae.java
  lab3.animals.Strigidae
 lab3/animals/Hirsutus.java
@@ -40,12 +40,13 @@ lab3/animals/Ursinus.java
  lab3.animals.Ursinus
 lab3/animals/Macropus.java
  lab3.animals.Macropus
-lab3/animals/Aluco.java
- lab3.animals.Aluco
+lab3/Queue.java
+ lab3.Queue
+ lab3.Queue$Node
 lab3/animals/Tytonidae.java
  lab3.animals.Tytonidae
-lab4/Main.java
- lab4.Main
+lab3/animals/Aluco.java
+ lab3.animals.Aluco
 lab6/Main.java
  lab6.Main
 lab2/DivisionByZero.java
@@ -68,14 +69,15 @@ lab2/UnableToOpenFile.java
  lab2.UnableToOpenFile
 lab1/Main.java
  lab1.Main
+lab4/Counter.java
+ lab4.Counter
 lab3/animals/Badius.java
  lab3.animals.Badius
 lab3/animals/Assimilis.java
  lab3.animals.Assimilis
 lab1/Run.java
  lab1.Run
-lab3/Queue.java
- lab3.Queue
- lab3.Queue$Node
-lab3/Main.java
- lab3.Main
+lab4/Function.java
+ lab4.Function
+lab4/Main.java
+ lab4.Main

@@ -25,12 +25,12 @@ public class Queue<T> {
         this.end = null;
     }
 
-    public void add (T value) {
+    public void add (Object value) {
         if (end == null) {
-            this.end = new Node<>(value,null);
+            this.end = new Node(value,null);
             this.start = this.end;
         } else {
-            this.end.next = new Node<>(value, null);
+            this.end.next = new Node(value, null);
             this.end = this.end.next;
         }
         this.curSize++;
@@ -74,31 +74,41 @@ public class Queue<T> {
 
     <E> Queue<? extends E> produce (Class<? extends E> type) {
 
-        Queue<E> newQueue = new Queue<>();
-        if (this.isEmpty()) {
-            this.randomFill(5);
-        }
 
-        Node<?> it = this.start;
-        while (it != null) {
-            Class<?> temp = it.value.getClass();
-            boolean cond = true;
-            temp = it.value.getClass();
-            if (cond) {
-                try {
-                    newQueue.add((E) temp.getConstructor().newInstance());
-                    System.out.print(temp.getSimpleName() + " ");
-                }
-                catch (NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException ex) {
-                    System.out.println(ex.getMessage());
-                }
-            }
-            it = it.next;
+        Queue<? extends E> newQueue = new Queue<>();
+
+        Chordate[] tmp = new Chordate[5];
+        final Chordate[] Animals = new Chordate[] {new Assimilis(),new Badius(),new Nebulosa(),new Aluco(),new Hirsutus(),new Tasmaniensis(),new Agilis(),new Dorsalis()};
+        for (int i = 0; i < 5; i++){
+            tmp[i] =  Animals[(int) (Math.random() * 8)];
         }
-        if (newQueue.isEmpty()) {
-            System.out.print("There were no " + type.getSimpleName() + " heirs in the queue");
+        for (int i = 0; i < 5; i++){
+            newQueue.add(tmp[i]);
         }
-        System.out.println();
+      // if (this.isEmpty()) {
+        //   this.randomFill(5);
+       //}
+
+        //Node<?> it = this.start;
+        //while (it != null) {
+          //  Class<?> temp = it.value.getClass();
+            //boolean cond = true;
+            //temp = it.value.getClass();
+            //if (cond) {
+              //  try {
+                //    newQueue.add((E) temp.getConstructor().newInstance());
+                  //  System.out.print(temp.getSimpleName() + " ");
+                //}
+                //catch (NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException ex) {
+                  //  System.out.println(ex.getMessage());
+               // }
+            //}
+            //it = it.next;
+        //}
+        //if (newQueue.isEmpty()) {
+          //  System.out.print("There were no " + type.getSimpleName() + " heirs in the queue");
+        //}
+        //System.out.println();
         return newQueue;
     }
 
@@ -112,6 +122,9 @@ public class Queue<T> {
 
             Class<?> iParent = element.getSuperclass();
             Queue<Class<? super E>> newQueue = new Queue<>();
+            newQueue.add((Class<E>) element);
+            System.out.print(curNum + ") " + iParent.getSimpleName());
+            System.out.println(": " + element.getSimpleName());
             while (!iParent.getSimpleName().equals("Chordate")) {
                 newQueue.add((Class<E>) iParent);
                 iParent = iParent.getSuperclass();
@@ -119,8 +132,7 @@ public class Queue<T> {
             newQueue.add((Class<E>) iParent);
             allQueues.add(newQueue);
 
-            System.out.print(curNum + ") " + iParent.getSimpleName());
-            System.out.println(": " + element.getSimpleName());
+
             curNum++;
         }
         System.out.println();
