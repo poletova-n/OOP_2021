@@ -7,5 +7,5 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 @interface About {
-    int count() default 0 ;
+    int count() default 4 ;
 }
