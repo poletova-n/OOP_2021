@@ -14,7 +14,8 @@ public class Main {
         System.out.println("How type of animals you wanna choose\nFly\nDig\nWalk\nWright your type in:");
         Scanner in = new Scanner(System.in);
         Hero newHero = new Hero(in.next());
-        while (true) {
+        do {
+
             System.out.println("Enter x coordinate of moving:");
             double x = in.nextDouble();
             System.out.println("Enter y coordinate of moving:");
@@ -23,12 +24,7 @@ public class Main {
             double z = in.nextDouble();
             newHero.move(new Point(x, y, z));
             System.out.println("do you wanna continue?y/n");
-            if (in.next().equals("y")) {
-                continue;
-            } else
-                break;
-        }
-
+        }while (in.next().equals("y"));
         //System.out.println(newHero.getPosition().getCoordinatesMessage());
         System.out.println("Goodbye");
     }
