@@ -60,7 +60,7 @@ public class Queue<T>
     public void consume(Class cl) throws QueueUnderflow, QueueOverflow {
         try {
             if (capacity > 0) {
-                Queue<? extends T> queueHierarchy = new Queue<>(23);
+                Queue<? extends T> queueHierarchy = new Queue<>(15);
 
                 while (!cl.equals(Chordate.class)) {
                     queueHierarchy.add(cl.getGenericSuperclass());
@@ -163,14 +163,14 @@ public class Queue<T>
             Queue<? extends Chordate> tempQueue = new Queue<>(this.size);
             Queue<? extends Chordate> hierarchy = getHierarchy();
 
-            if (capacity > 0) {
+/*            if (capacity > 0) {
                 for (int i = capacity; i > 0; i--) {
                     T tempData = head.getObj();
                     head = head.getNext();
 
                     tempQueue.add(tempData);
                 }
-            }
+            }*/
 
             while ((tempQueue.capacity != tempQueue.size) & (!hierarchy.isEmpty())) {
                 tempQueue.add(hierarchy.get());

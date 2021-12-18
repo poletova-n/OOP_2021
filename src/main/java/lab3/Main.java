@@ -29,10 +29,10 @@ public class Main {
         Queue<? extends Chordate> queueFull = new Queue<>(14);
         queueFull = queueFull.produce();
         queueFull.print();
-        queueFull.consume(SteppeLynx.class);
+        queueFull.consume(TurkmenCaracal.class);
         queueFull.print();
         queueFull = queueFull.produce();
-        queueFull.consume(SteppeLynx.class);
+        queueFull.consume(SomeRacoon.class);
         queueFull.print();
     }
 }
