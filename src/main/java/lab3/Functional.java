@@ -5,11 +5,13 @@ import lab3.exceptions.QueueOverflow;
 import lab3.exceptions.QueueUnderflow;
 
 import java.util.ArrayList;
-
+import java.lang.reflect.Type;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Functional {
-    public static Queue<Animals> produce() throws QueueUnderflow ,QueueOverflow {
-        Queue<Animals> queue = new Queue<>(10);
+    public static Queue<? extends Animals> produce() throws QueueUnderflow ,QueueOverflow {
+        Queue<? extends Animals> queue = new Queue<>(20, Animals.class);
         queue.add(new Animals("Animal"));
         queue.add(new Chorda("Chorda"));
         queue.add(new Mammals("Mammals"));
@@ -20,36 +22,34 @@ public class Functional {
         queue.add(new Ferret("Ferret", "small", "ferret"));
         return queue;
     }
-    public static ArrayList<Animals> upperBound() throws QueueUnderflow, QueueOverflow{
-        ArrayList<Animals> sort = new ArrayList<>();
-        Queue<Animals> queue = produce();
-        while (!queue.isEmty()){
-            sort.add(queue.get());
-        }
-        for (int i = 1; i < sort.size(); i++) {
-            if (sort.get(i - 1).getClass().getAnnotation(Deep.class).deep() > sort.get(i).getClass().getAnnotation(Deep.class).deep()){
-                Animals temp = sort.get(i-1);
-                sort.set(i - 1, sort.get(i));
-                sort.set(i, temp);
-                i = 0;
+    public static void consume(Queue<? extends Animals> queue, Class<?> superClass) throws QueueUnderflow, QueueOverflow {
+        Queue<? extends Animals> queueLow = new Queue<>(20, Animals.class);
+        List<Type> types = getListOfSuperClasses(superClass);
+        //System.out.println(queue.get().getClass());
+        //System.out.println(queue.isEmty());
+        while (!queue.isEmty()) {
+            //System.out.println(queue.pick());
+            if (types.contains(queue.pick().getClass())) {
+                //System.out.println("Added");
+                queueLow.add(queue.get());
+            } else {
+                //System.out.println("Not our case");
+                queue.get();
             }
         }
-        return sort;
+        System.out.println("Lower bound queue:\n" + queueLow);
     }
-    public static ArrayList<Animals> lowerBound() throws QueueUnderflow, QueueOverflow{
-        ArrayList<Animals> sort = new ArrayList<>();
-        Queue<Animals> queue = produce();
-        while (!queue.isEmty()){
-            sort.add(queue.get());
+
+    private static List<Type> getListOfSuperClasses(Class<?> superClass) {
+        List<Type> types = new LinkedList<>();
+
+        Class<?> sup = superClass;
+        types.add(sup);
+        while(!sup.equals(Object.class)){
+            types.add(sup.getGenericSuperclass());
+            sup = (Class<?>) sup.getGenericSuperclass();
+            System.out.println(sup);
         }
-        for (int i = 1; i < sort.size(); i++) {
-            if (sort.get(i - 1).getClass().getAnnotation(Deep.class).deep() < sort.get(i).getClass().getAnnotation(Deep.class).deep()){
-                Animals temp = sort.get(i-1);
-                sort.set(i - 1, sort.get(i));
-                sort.set(i, temp);
-                i = 0;
-            }
-        }
-        return sort;
+        return types;
     }
 }
