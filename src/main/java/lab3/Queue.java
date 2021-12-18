@@ -198,6 +198,7 @@ public class Queue<T>
         }
     }
 
+
     private Queue<? extends Chordate> getHierarchy() throws QueueOverflow
     {
         Queue<? extends Chordate> tempQueue = new Queue<>(14);

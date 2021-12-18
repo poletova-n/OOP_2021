@@ -2,7 +2,7 @@ package lab4;
 
 public class Human
 {
-    @MyAnnotation(param = 1)
+
     private void walk()
     {
         System.out.println("Walk for a bit ");
