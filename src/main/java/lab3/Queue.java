@@ -2,6 +2,9 @@ package lab3;
 
 import lab3.annimals.*;
 import lab3.exceptions.*;
+
+import java.io.IOException;
+import java.io.OutputStream;
 import java.lang.reflect.Type;
 import java.util.LinkedList;
 import java.util.List;
@@ -27,6 +30,7 @@ public class Queue<T> {
     private Integer capacity = 0;
     private Node head = null;
     private final Class<T> clazz;
+
 
     public Queue(int size, Class<T> superclass) {
         this.size = size;
@@ -96,6 +100,10 @@ public class Queue<T> {
     }
 
     public static void consume(Queue<? extends Chordal> queue, Class<?> superClass) throws QueueUnderflow, QueueOverflow {
+        if(queue.isEmpty()) {
+            System.out.println("Queue is empty");
+            return;
+        }
 
         Queue<? super Chordal> queueLow = new Queue<>(SIZE, Chordal.class);
         List<Type> types = getListOfSuperClasses(superClass);

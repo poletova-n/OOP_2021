@@ -9,7 +9,7 @@ public class Main
   {
     ConcurrentLinkedQueue<String> queue = new ConcurrentLinkedQueue<>();
 
-    int N = 2;
+    int N = 3;
     Thread[] writer = new Thread[N];
     Thread[] reader = new Thread[N];
 
@@ -27,8 +27,20 @@ public class Main
 
     Thread queueOuter = new Thread(() ->
     {
-      int sleepTime = 3000;
-      while (!Thread.currentThread().isInterrupted())
+      int sleepTime = 3001;
+      try
+      {
+        while(!Thread.currentThread().isInterrupted())
+        {
+          Thread.sleep(sleepTime);
+          System.out.println("Current queue state:" + queue);
+        }
+      }catch (InterruptedException e)
+      {
+        System.out.println("Thread 'queueChecker' is interrupted");
+        //e.printStackTrace();
+      }
+      /*while (!Thread.currentThread().isInterrupted())
       {
         try
         {
@@ -39,24 +51,20 @@ public class Main
           e.printStackTrace();
         }
         System.out.println("Current queue state:" + queue);
-      }
+      }*/
     });
     queueOuter.start();
 
-    try
-    {
-      Thread.sleep(5000);
-    }
-    catch (InterruptedException e)
-    {
+    try {
+      Thread.sleep(3050);
+      for (int i = 0; i < N; i++) {
+        writer[i].interrupt();
+        reader[i].interrupt();
+      }
+      queueOuter.interrupt();
+      System.out.println("Start of interrupting threads :");
+    } catch(InterruptedException e) {
       e.printStackTrace();
     }
-    for (int i = 0; i < N; i++)
-    {
-      writer[i].stop();
-      reader[i].stop();
-    }
-    queueOuter.stop();
-    System.out.println("END");
   }
 }

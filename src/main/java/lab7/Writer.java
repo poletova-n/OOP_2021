@@ -23,7 +23,22 @@ public class Writer implements Runnable
 
     {
         Thread.currentThread().setName("WRITER>> #" + (++writerCount));
-        while (!Thread.currentThread().isInterrupted())
+        try
+        {
+            while(!Thread.currentThread().isInterrupted())
+            {
+                Thread.sleep(tickRate);
+
+                String msg = getMessageToWrite();
+                queue.add(msg);
+                System.out.println("Thread '" + Thread.currentThread().getName() + "' wrote '" + msg + "'");
+            }
+        }catch (InterruptedException e)
+        {
+            System.out.println("Thread '" + Thread.currentThread().getName() + "' is interrupted");
+            //e.printStackTrace();
+        }
+        /*while (!Thread.currentThread().isInterrupted())
         {
             try
             {
@@ -37,7 +52,7 @@ public class Writer implements Runnable
             String msg = getMessageToWrite();
             queue.add(msg);
             System.out.println("Thread '" + Thread.currentThread().getName() + "' wrote '" + msg + "'");
-        }
+        }*/
     }
 
     private String getMessageToWrite()

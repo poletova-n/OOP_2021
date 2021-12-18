@@ -27,7 +27,7 @@ public class Application implements Runnable{
         currentStatus = status;
     }
 
-    public Status getStatus(){
+    public synchronized Status getStatus(){
         return currentStatus;
     }
 
@@ -57,10 +57,10 @@ public class Application implements Runnable{
                 }
 
                 switch ((int) ((Math.random() * 4) + 1)) {
-                    case 1 -> currentStatus = Status.UNKNOWN;
-                    case 2 -> currentStatus = Status.STOPPING;
-                    case 3 -> currentStatus = Status.RUNNING;
-                    case 4 -> currentStatus = Status.FATAL_ERROR;
+                    case 1 -> setStatus(Status.UNKNOWN);
+                    case 2 -> setStatus(Status.STOPPING);
+                    case 3 -> setStatus(Status.RUNNING);
+                    case 4 -> setStatus(Status.FATAL_ERROR);
                     default -> throw new IllegalStateException("Unexpected value: " + (int) ((Math.random() * 4) + 1));
                 }
 

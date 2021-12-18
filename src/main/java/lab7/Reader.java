@@ -18,7 +18,29 @@ public class Reader implements Runnable
     public void run()
     {
         Thread.currentThread().setName("<<READER #" + (++i));
-        while (!Thread.currentThread().isInterrupted())
+
+        try
+        {
+            while(!Thread.currentThread().isInterrupted())
+            {
+                Thread.sleep(tickRate);
+
+                String messageToRead = queue.poll();
+                if (messageToRead == null)
+                {
+                    System.out.println("Thread '" + Thread.currentThread().getName() + "' read from empty queue");
+                }
+                else
+                {
+                    System.out.println("Thread '" + Thread.currentThread().getName() + "' read '" + messageToRead + "'");
+                }
+            }
+        }catch (InterruptedException e)
+        {
+            System.out.println("Thread '" + Thread.currentThread().getName() + "' is interrupted");
+            //e.printStackTrace();
+        }
+        /*while (!Thread.currentThread().isInterrupted())
         {
             try
             {
@@ -37,6 +59,6 @@ public class Reader implements Runnable
             {
                 System.out.println("Thread '" + Thread.currentThread().getName() + "' read '" + messageToRead + "'");
             }
-        }
+        }*/
     }
 }
