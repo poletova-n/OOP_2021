@@ -15,25 +15,10 @@ public class Main {
         Animals animal1 = new Animals("animal");
         Animals chorda = new Chorda("chorda");
         try {
-            Queue<? extends Animals> queue = Functional.produce();
-            System.out.println("Upper bound queue:\n" + queue + "\n");
-            System.out.println("Enter Animal - a parent for lower bound queue from a list.");
 
-            Scanner sc = new Scanner(System.in);
-            String classString = null;
-            if (sc.hasNext())
-                classString = sc.nextLine();
-            //System.out.println(classString);
-            if (Objects.equals(classString, "1"))
-                Functional.consume(queue, Ferret.class);
-            else if(Objects.equals(classString, "2"))
-                Functional.consume(queue, Mammals.class);
-            else if(Objects.equals(classString, "3"))
-                Functional.consume(queue, Mustelidae.class);
-            else if(Objects.equals(classString, "4"))
-                Functional.consume(queue, Weasels.class);
-            else if(Objects.equals(classString, "5"))
-                Functional.consume(queue, Animals.class);
+            Queue<?> task1 = (new Queue<Animals>()).produce(Class.forName("lab3.classes.Animals"));
+            Queue<?> task2 = task1.consume();
+
 
         }catch (QueueOverflow | QueueUnderflow e) {
             System.out.println(e.getMessage());
