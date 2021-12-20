@@ -5,6 +5,7 @@ import lab3.exceptions.QueueOverflow;
 import lab3.exceptions.QueueUnderflow;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Queue<T>{
@@ -80,6 +81,10 @@ public class Queue<T>{
         for (int i = 0; i < 5; i++){
             newQueue.add(tmp[i]);
         }
+        newQueue.add(new Ferret("Ferret", "small", "ferret"));
+        newQueue.add(new Weasels("Weasel","small" ,"weasel"));
+        newQueue.add(new Chorda("Chorda"));
+        newQueue.add(new NonChorda("NonChorda"));
         return newQueue;
     }
     public int size(){
@@ -90,25 +95,49 @@ public class Queue<T>{
         Queue<Queue<Class<? super E>>> allQueues = new Queue<>();
         int counter = this.size();
         int curNum = 1;
-        for (int i = counter; i > 0; i--) {
-            Class<?> el = this.get().getClass();
+        ArrayList<ArrayList<Class<? super E>>> arrayLists = new ArrayList<>();
+        for (int i = 0; i < counter; i++) {
+            Class<? super E> el = (Class<? super E>) this.get().getClass();
 
             Class<?> Parent = el.getSuperclass();
             Queue<Class<? super E>> newQueue = new Queue<>();
-            newQueue.add((Class<E>) el);
-            System.out.print(curNum + ") " + Parent.getSimpleName());
-            System.out.println(": " + el.getSimpleName());
-            while (!Parent.getSimpleName().equals("Animals")) {
-                newQueue.add((Class<E>) Parent);
-                Parent = Parent.getSuperclass();
+            boolean added = false;
+            for (int j = 0; j < arrayLists.size(); j++) {
+                if (arrayLists.get(j).get(0).getSuperclass() == Parent){
+                    arrayLists.get(j).add(el);
+                    added = true;
+                    break;
+                }
+
             }
-            newQueue.add((Class<E>) Parent);
-            allQueues.add(newQueue);
+            if (!added){
+                //newQueue.add((Class<E>)el);
+                arrayLists.add(new ArrayList<>());
+                arrayLists.get(arrayLists.size() - 1).add(el);
+            }
 
 
             curNum++;
         }
+        for (int i = 0; i < arrayLists.size(); i++) {
+            Queue<Class<? super E>> queue = new Queue<>();
+            for (int j = 0; j < arrayLists.get(i).size(); j++) {
+                queue.add(arrayLists.get(i).get(j));
+            }
+            allQueues.add(queue);
+        }
         System.out.println();
+        int count = 1;
+        System.out.println(allQueues.size());
+        while (!allQueues.isEmty()){
+            System.out.println("GROUP " + count);
+            while(!allQueues.pick().isEmty()){
+                System.out.println(allQueues.pick().get().getSimpleName());
+            }
+            System.out.println();
+            allQueues.get();
+            count++;
+        }
         return allQueues;
     }
     @Override

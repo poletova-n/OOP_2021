@@ -19,7 +19,6 @@ public class Main {
             Queue<?> task1 = (new Queue<Animals>()).produce(Class.forName("lab3.classes.Animals"));
             Queue<?> task2 = task1.consume();
 
-
         }catch (QueueOverflow | QueueUnderflow e) {
             System.out.println(e.getMessage());
             e.printStackTrace();
