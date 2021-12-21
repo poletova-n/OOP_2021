@@ -1,7 +1,4 @@
 package lab3.animals;
 
-public class SteppeLynx extends Caracal{
-    public SteppeLynx(){
-        type = "Steppe lynx";
-    }
+public abstract class SteppeLynx extends Caracal{
 }

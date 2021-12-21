@@ -1,8 +1,5 @@
 package lab3.animals;
 
 
-public class Mammals extends Chordate {
-    public Mammals() {
-        type = "Mammals";
-    }
+public abstract class Mammals extends Chordate {
 }
