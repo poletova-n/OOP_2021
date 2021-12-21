@@ -1,4 +1,4 @@
 package lab3.annimals;
 
-public abstract class Birds extends Chordal{
+public abstract class Birds extends Vertebrat{
 }

@@ -1,17 +1,14 @@
 package lab3.annimals;
 
 public abstract class Chordal {
+    private String greeting="";
 
-    protected String type;
-
-    public Chordal()
-    {
-        type = "Chordal";
+    public Chordal(){
+        greeting = "Chordal";
     }
 
-    @Override
-    public String toString()
-    {
-        return type;
+    public String getGreting(){
+        return greeting;
     }
+
 }

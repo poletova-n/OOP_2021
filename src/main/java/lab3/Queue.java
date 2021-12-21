@@ -1,172 +1,137 @@
 package lab3;
 
 import lab3.annimals.*;
-import lab3.exceptions.*;
 
-import java.io.IOException;
-import java.io.OutputStream;
-import java.lang.reflect.Type;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+public class Queue<T extends Chordal> {
 
-public class Queue<T> {
+    public static class Node<E> {
+        E value;
+        Node<E> next;
 
-    class Node {
-        private Node next;
-        private final T element;
-
-        public Node(T el) {
-            element = el;
-            next = null;
+        Node(E val, Node<E> next) {
+            this.value = val;
+            this.next = next;
         }
 
-        public T getElement() {
-            return element;
+
+        public E getVal()
+        {
+            return value;
+        }
+
+        public Node<E> getNext()
+        {
+            return next;
+        }
+
+    }
+
+    private final int maxSize; // максимальное количество элементов в очереди
+    private int count;  // текущее количество элементов в очереди
+    private Node<T> pointRead;
+    private Node<T> pointAdd;
+
+
+
+    public Queue(int size) {
+        this.maxSize = size;
+        count = 0;
+        pointAdd = null;
+        pointRead = null;
+    }
+
+    public void printQueue() {
+        int numb = this.count;
+        int i = 1;
+        Node<T> elements = new Node<>(this.pointRead.getVal(), this.pointRead.getNext());
+
+        while (numb > 0) {
+            System.out.println(i + " " + elements.getVal().getClass());
+            i++;
+            elements = elements.getNext();
+            numb--;
         }
     }
 
-    private final Integer size;
-    private Integer capacity = 0;
-    private Node head = null;
-    private final Class<T> clazz;
-
-
-    public Queue(int size, Class<T> superclass) {
-        this.size = size;
-        this.clazz = (Class<T>) superclass.arrayType().componentType();
-    }
-
-    public void add(Object el) throws QueueOverflow {
-
-        if (!clazz.isInstance(el))
-            throw new ClassCastException("Illegal class casting, " + el + " was not added.");
-
-        if (size.equals(capacity))
-            throw new QueueOverflow("Element: " + el.toString() + " was not added, because queue is full");
-
-        if (head == null)
-            head = new Node((T) el);
-
-        else {
-            Node currentNode = head;
-            while (currentNode.next != null)
-                currentNode = currentNode.next;
-            currentNode.next = new Node((T) el);
+    public void add(T elem) {
+        try{
+            if (this.count==this.maxSize) {
+                throw new StackOverflowError("Queue is overflow!");
+            }
+            if(pointAdd==null) {
+                this.pointAdd = new Node<>(elem, null);
+                this.pointRead = this.pointAdd;
+            }
+            else{
+                this.pointAdd.next= new Node<>(elem, null);
+                this.pointAdd = this.pointAdd.next;
+            }
+            this.count++;
+        }catch (StackOverflowError ex){
+            System.out.println(ex.getMessage());
         }
-        capacity++;
     }
-    public T pop() throws QueueUnderflow {
-        if (head == null)
-            throw new QueueUnderflow("There are no items in the queue.");
 
-        Node temp = head;
-        head = head.next;
-
-        capacity--;
-        return temp.getElement();
-    }
     public T get() {
-        return head.getElement();
-    }
-
-    public boolean isFull() {
-        return size.equals(capacity);
-    }
-    public boolean isEmpty() {
-        return capacity == 0;
-    }
-    public Integer getSize() {
-        return size;
-    }
-
-    public static int SIZE = 4;
-
-    public static Queue<? extends Chordal> produce() throws QueueOverflow {
-
-        Queue<? extends Chordal> queue = new Queue<>(SIZE, Chordal.class );
-
-
-        Chordal[] animals = new Chordal[SIZE];
-        animals[0]  = new BengalOwl();
-        animals[1]  = new MagellansOwl();
-        animals[2]  = new SilverGibbon();
-        animals[3]  = new TheWhiteArmedGibbon();
-        for (int i = 0; i < SIZE; i++){
-            queue.add(animals[i]);
-        }
-
-        return queue;
-    }
-
-    public static void consume(Queue<? extends Chordal> queue, Class<?> superClass) throws QueueUnderflow, QueueOverflow {
-        if(queue.isEmpty()) {
-            System.out.println("Queue is empty");
-            return;
-        }
-
-        Queue<? super Chordal> queueLow = new Queue<>(SIZE, Chordal.class);
-        List<Type> types = getListOfSuperClasses(superClass);
-
-        System.out.println(types);
-
-    }
-
-    private static List<Type> getListOfSuperClasses(Class<?> superClass) {
-
-        List<Type> types = new LinkedList<>();
-
-        Class<?> superc = superClass;
-        types.add(superc);
-
-        while(!superc.equals(Object.class)){
-
-            types.add(superc.getGenericSuperclass());
-            superc = (Class<?>) superc.getGenericSuperclass();
-        }
-
-        types.remove(types.size()-1);
-
-        return types;
-    }
-
-    public static void selectClass() throws QueueOverflow, QueueUnderflow {
-
-        Queue<? extends Chordal> queue = produce();
-        System.out.println("Upper bound queue:\n" + queue + "\n");
-        System.out.println("Enter Animal's class name - a parent class for lower bound queue from a list.");
-
-        Scanner sc = new Scanner(System.in);
-        String className = null;
-
-        if (sc.hasNext()) {
-            className = sc.nextLine();
-        }
-
-        switch (className) {
-            case "BengalOwl"                    -> consume(queue, BengalOwl.class);
-            case "MagellansOwl"                 -> consume(queue, MagellansOwl.class);
-            case "SilverGibbon"                 -> consume(queue, SilverGibbon.class);
-            case "TheWhiteArmedGibbon"          -> consume(queue, TheWhiteArmedGibbon.class);
-            default               -> System.out.println("Unknown class name!");
+        try {
+            if (count == 0) {
+                throw new IllegalStateException("Impossible to get an element! The queue is empty!\n");
+            }
+            T temp =  this.pointRead.getVal();
+            this.pointRead = this.pointRead.getNext();
+            this.count--;
+            if (this.pointRead == null) {
+                this.pointAdd = null;
+            }
+            return temp;
+        } catch (IllegalStateException ex) {
+            System.out.println(ex.getMessage());
+            return null;
         }
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        Node currentNode = head;
-        if (head == null)
-            return "Elements=" + "[]";
-
-        while (currentNode.next != null) {
-            sb.append(currentNode.getElement().getClass());
-            sb.append("\n");
-            currentNode = currentNode.next;
-        }
-        sb.append(currentNode.getElement().getClass());
-
-        return "Elements=[\n" + sb + "\n]";
+    public T top() {
+        return  this.pointRead.getVal();
     }
 
+    public static Queue<? extends Chordal> produce(int size) {
+
+        Queue<Vertebrat> Box = new Queue<>(size);
+        Queue<? extends Chordal> Box2 = new Queue<>(size);
+
+        for (int i = 0; i < size; i++) {
+            int temp = (int) ((Math.random() * 4));
+            switch (temp) {
+                case (0) -> Box.add(new BengalOwl());
+                case (1) -> Box.add(new MagellansOwl());
+                case (2) -> Box.add(new SilverGibbon());
+                case (3) -> Box.add(new TheWhiteArmedGibbon());
+            }
+        }
+        return Box2 = Box;
+    }
+
+    public static void consume(Queue <?> Box){
+        Queue<? super Striginae> birdBox = new Queue<Striginae>(Box.maxSize);
+        Queue<? super Gibbon> monkebox = new Queue<Gibbon>(Box.maxSize);
+
+        Queue<? super Owls> birdbox2 = new Queue<>(Box.maxSize);
+        Queue<? super GreatApes> monkebox2 = new Queue<>(Box.maxSize);
+
+        for (int i = 0; i < Box.maxSize; i++) {
+            if (Box.top() instanceof Owls || Box.top() instanceof Striginae || Box.top() instanceof BengalOwl || Box.top() instanceof MagellansOwl) {
+                birdbox2.add((Owls) Box.get());
+            } else if (Box.top() instanceof GreatApes || Box.top() instanceof Gibbon
+                    || Box.top() instanceof SilverGibbon || Box.top() instanceof TheWhiteArmedGibbon) {
+                monkebox2.add((GreatApes) Box.get());
+            }
+        }
+        birdBox = birdbox2;
+        monkebox = monkebox2;
+
+        System.out.println("Box with birds");
+        birdBox.printQueue();
+        System.out.println("Box with monkeys");
+        monkebox.printQueue();
+    }
 }
