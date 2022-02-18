@@ -10,4 +10,8 @@ public class Point {
     @Getter
     @Setter
     private int y;
+    Point (int a, int b){
+        x=a;
+        y=b;
+    }
 }
